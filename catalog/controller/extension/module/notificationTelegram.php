@@ -22,7 +22,7 @@ class ControllerExtensionModuleNotificationTelegram extends Controller
             $this->load->model('account/order');
             $order_products = $this->model_account_order->getOrderProducts($data[0]);
 
-            $message = "You have a new order\n";
+            $message = " لديك طلب جديد \n";
             $message .= $this->buldArray($order_products[0]);
             $this->sendMessagetoTelegam($message);
 
@@ -37,7 +37,7 @@ class ControllerExtensionModuleNotificationTelegram extends Controller
         $setting = $this->model_setting_setting->getSetting('notificationTelegram');
         if (isset($setting['notificationTelegram_order_alert'])) {
 
-            $message = "New Customer";
+            $message = "عميل جديد \n";
             $this->sendMessagetoTelegam( $message);
 
 
@@ -51,7 +51,7 @@ class ControllerExtensionModuleNotificationTelegram extends Controller
         $setting = $this->model_setting_setting->getSetting('notificationTelegram');
         if (isset($setting['notificationTelegram_return_alert'])) {
 
-            $message = " Return Product" .implode("",$output);
+            $message = "ارجاع طلب \n ";
             $this->sendMessagetoTelegam( $message);
 
 
