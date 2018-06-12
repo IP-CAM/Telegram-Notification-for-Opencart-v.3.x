@@ -3,7 +3,8 @@
 admin/config.php
 
 !index.html
-.DS_Store
+echo .DS_Store >> .gitignore
+
 download/
 image/data/
 image/cache/
