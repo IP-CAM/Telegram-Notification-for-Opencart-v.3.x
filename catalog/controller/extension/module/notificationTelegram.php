@@ -13,11 +13,8 @@ class ControllerExtensionModuleNotificationTelegram extends Controller
 
     public function sendOrderAlert(&$route, &$data, &$output)
     {
-
-
         $this->load->model('setting/setting');
         $setting = $this->model_setting_setting->getSetting('notificationTelegram');
-
         if (isset($setting['notificationTelegram_order_alert'])) {
 
 
@@ -27,7 +24,7 @@ class ControllerExtensionModuleNotificationTelegram extends Controller
 
             $message = "You have a new order\n";
             $message .= $this->buldArray($order_products[0]);
-            $this->sendMessagetoTelegam($setting, $message);
+            $this->sendMessagetoTelegam($message);
 
         }
 
@@ -36,14 +33,26 @@ class ControllerExtensionModuleNotificationTelegram extends Controller
 
     public function sendAccountAlert(&$data)
     {
-
         $this->load->model('setting/setting');
         $setting = $this->model_setting_setting->getSetting('notificationTelegram');
-
         if (isset($setting['notificationTelegram_order_alert'])) {
 
             $message = "New Customer";
-            $this->sendMessagetoTelegam($setting, $message);
+            $this->sendMessagetoTelegam( $message);
+
+
+        }
+    }
+
+
+    public function sendReturnProductAlert(&$data,&$output)
+    {
+        $this->load->model('setting/setting');
+        $setting = $this->model_setting_setting->getSetting('notificationTelegram');
+        if (isset($setting['notificationTelegram_return_alert'])) {
+
+            $message = " Return Product" .implode("",$output);
+            $this->sendMessagetoTelegam( $message);
 
 
         }
@@ -52,7 +61,7 @@ class ControllerExtensionModuleNotificationTelegram extends Controller
 
     //Send  message To notificationTelegram
 
-    public function sendMessagetoTelegam($setting, $msg)
+    public function sendMessagetoTelegam($msg)
     {
 
 

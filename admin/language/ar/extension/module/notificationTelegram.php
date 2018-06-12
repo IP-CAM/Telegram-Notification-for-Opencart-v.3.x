@@ -23,6 +23,7 @@ $_['entry_user_key'] = 'Notification Telegram Chat ID';
 $_['entry_send_order_alert'] = 'ارسال تنبيه عند طلب جديد';
 $_['entry_send_new_customer_alert'] = 'تنبيه عند تسجيل مستخدم جديد';
 $_['entry_add_customer_name'] = 'اضافة اسم المستخدم للتنبيه';
+$_['entry_return_alert'] = 'تنبيه عند ارجاع طلب';
 
 // Help
 

@@ -35,6 +35,7 @@ $_['entry_user_key'] = 'Notification Telegram Chat ID';
 $_['entry_send_order_alert'] = 'Send alert when new request';
 $_['entry_send_new_customer_alert'] = 'Alert when registering new user';
 $_['entry_add_customer_name'] = 'Add user name to alert';
+$_['entry_return_alert'] = 'Return Product';
 
 
 

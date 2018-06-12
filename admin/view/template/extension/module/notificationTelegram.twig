@@ -106,7 +106,19 @@
                                     {{  entry_send_new_customer_alert }}
                                 </label>
                                 <div class="col-sm-2">
-                                    <input type="checkbox" name="notificationTelegram_customer_alert" id="customer_alert" {% if notificationTelegram_customer_alert %} checked {% endif %}  class="form-control" />
+                                    <input type="checkbox" name="notificationTelegram_customer_alert" id="notificationTelegram_customer_alert" {% if notificationTelegram_customer_alert %} checked {% endif %}  class="form-control" />
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="return">
+                                    {{  entry_return_alert }}
+                                </label>
+                                <div class="col-sm-2">
+                                    <input type="checkbox" name="notificationTelegram_return_alert" id="return" {% if notificationTelegram_return_alert %} checked {% endif %}  class="form-control" />
                                 </div>
                             </div>
 

@@ -110,6 +110,16 @@ class ControllerExtensionModuleNotificationTelegram extends Controller {
 		}
 
 
+	//الكي الخاص باالتطبيق
+		if(isset($this->request->post['notificationTelegram_return_alert'])) {
+			$data['notificationTelegram_return_alert'] = $this->request->post['notificationTelegram_return_alert'];
+		} elseif ($this->config->get('notificationTelegram_return_alert')){
+			$data['notificationTelegram_return_alert'] = $this->config->get('notificationTelegram_return_alert');
+		} else{
+			$data['notificationTelegram_return_alert'] = '';
+		}
+
+
 
 
 
@@ -132,14 +142,15 @@ class ControllerExtensionModuleNotificationTelegram extends Controller {
     public function install(){
         $this->load->model('setting/event');
         $this->model_setting_event->addEvent('notificationTelegram', 'catalog/model/checkout/order/addOrderHistory/after', 'extension/module/notificationTelegram/sendOrderAlert');
-        $this->model_setting_event->addEvent('notificationTelegram', 'catalog/model/account/customer/addCustomer', 'extension/module/notificationTelegram/sendAccountAlert');
+        $this->model_setting_event->addEvent('notificationTelegram', 'catalog/model/account/customer/addCustomer/after', 'extension/module/notificationTelegram/sendAccountAlert');
+        $this->model_setting_event->addEvent('notificationTelegram', 'catalog/model/account/return/addReturn/after', 'extension/module/notificationTelegram/sendReturnProductAlert');
     }
 
 
 
     public function uninstall(){
-        $this->load->model('setting/event');
-        $this->model_setting_event->deleteEventByCode('notificationTelegram');
+	    $this->load->model('setting/setting');
+        $this->model_setting_setting->deleteSetting('notificationTelegram');
     }
 
 
