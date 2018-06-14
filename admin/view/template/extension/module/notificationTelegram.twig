@@ -185,11 +185,13 @@
 
         function appenTextarea(key){
 
-            $("#notificationTelegram_meassage").focus();
 
-            $('#notificationTelegram_meassage').val(function(i, text) {
-            return text + "{"+obj[key]+"}";
-        });
+                var $txt = jQuery("#notificationTelegram_meassage");
+                  var caretPos = $txt[0].selectionStart;
+                  var textAreaTxt = $txt.val();
+                  var txtToAdd = "{"+obj[key]+"}";
+                  $txt.val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos) );
+
 
 
         }
