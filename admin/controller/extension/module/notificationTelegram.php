@@ -100,7 +100,6 @@ class ControllerExtensionModuleNotificationTelegram extends Controller {
 		}
 
 
-			//الكي الخاص باالتطبيق
 		if(isset($this->request->post['notificationTelegram_chat_ids'])) {
 			$data['notificationTelegram_chat_ids'] = $this->request->post['notificationTelegram_chat_ids'];
 		} elseif ($this->config->get('notificationTelegram_chat_ids')){
@@ -110,13 +109,23 @@ class ControllerExtensionModuleNotificationTelegram extends Controller {
 		}
 
 
-	//الكي الخاص باالتطبيق
+
 		if(isset($this->request->post['notificationTelegram_return_alert'])) {
 			$data['notificationTelegram_return_alert'] = $this->request->post['notificationTelegram_return_alert'];
 		} elseif ($this->config->get('notificationTelegram_return_alert')){
 			$data['notificationTelegram_return_alert'] = $this->config->get('notificationTelegram_return_alert');
 		} else{
 			$data['notificationTelegram_return_alert'] = '';
+		}
+
+		
+		
+        if(isset($this->request->post['notificationTelegram_meassage'])) {
+			$data['notificationTelegram_meassage'] = $this->request->post['notificationTelegram_meassage'];
+		} elseif ($this->config->get('notificationTelegram_meassage')){
+			$data['notificationTelegram_meassage'] = $this->config->get('notificationTelegram_meassage');
+		} else{
+			$data['notificationTelegram_meassage'] = '';
 		}
 
 

@@ -13,34 +13,35 @@
 
         public function sendOrderAlert(&$route, &$data, &$output)
         {
-
-
-
+    
+    
+            
+           
+            
+            $order_id = $data[0];
             $this->load->model('checkout/order');
-            $order_info = $this->model_checkout_order->getOrder($data[0]);
-
-
-//        print_r($order_info);
+            $order_info = $this->model_checkout_order->getOrder($order_id);
 
             $this->load->model('setting/setting');
             $setting = $this->model_setting_setting->getSetting('notificationTelegram');
 
             if (isset($setting['notificationTelegram_order_alert'])) {
-
-
-                //  load order data
-//                $this->load->model('account/order');
-//                $order_products = $this->model_account_order->getOrderProducts($data[0]);
-//
-                $message = "لديك طلب جديد\n";
-                $message .= $this->buldArray($order_info);
-                $this->sendMessagetoTelegam($message);
-
+                
+                $this->load->model('account/order');
+                if (count($this->model_account_order->getOrderHistories($order_id)) <= 1) {
+                    $message = $this->replaceMessage($setting['notificationTelegram_meassage'],$order_info);
+//                    $message .= $this->buldArray($order_info);
+                    $this->sendMessagetoTelegam($message);
+                }
+   
             }
 
 
 
         }
+        
+        
+        
 
         public function sendAccountAlert(&$data)
         {
@@ -136,6 +137,16 @@
             }
 
 
+        }
+        
+        
+        
+        public function replaceMessage($string,$arr){
+    
+          return   $str = preg_replace_callback('/{(\w+)}/', function($match) use($arr) {
+                return $arr[$match[1]];
+            }, $string );
+    
         }
 
 
