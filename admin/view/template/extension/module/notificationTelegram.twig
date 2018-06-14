@@ -36,30 +36,30 @@
 
                         <div class="container">
 
-                        <div class="form-group col-lg-8 ">
-                            <button type="button" form="form-push" onclick="appText();" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Add Chat IDs"><i class="fa fa-plus"></i></button>
-                            <button type="button" id="test"  data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Test Push Notification"><i class="fa fa-comments-o "></i></button>
-                        </div>
+                            <div class="form-group col-lg-8 ">
+                                <button type="button" form="form-push" onclick="appText();" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Add Chat IDs"><i class="fa fa-plus"></i></button>
+                                <button type="button" id="test"  data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Test Push Notification"><i class="fa fa-comments-o "></i></button>
+                            </div>
                         </div>
                         <br/>
 
                         <div class="container" id="groubChatID">
-                        <div class="input-group col-lg-5">
-                            <span class="input-group-addon" id="basic-addon1">{{ entry_return_BOTTOKEN}}</span>
-                            <input type="text" name="notificationTelegram_boot_token" id="notificationTelegram_boot_token"  value="{{ notificationTelegram_boot_token }}" placeholder="BOT_TOKEN" class="form-control" />
-                            <span class="input-group-btn"><button  class="btn btn-info " type="button"><i class="fa fa-bookmark"></i></button> </span>
-                        </div>
-                        <br>
-
-                        {% for key,val in notificationTelegram_chat_ids %}
-<br/>
                             <div class="input-group col-lg-5">
-                                <span class="input-group-addon" id="basic-addon1">{{ entry_return_chatID }}</span>
-                                <input type="text" name="notificationTelegram_chat_ids[]" class="form-control"  value="{{ val }}" />
-                                <span class="input-group-btn"><button  class="btn btn-danger removed" type="button"><i class="fa fa-trash-o"></i></button></span>
+                                <span class="input-group-addon" id="basic-addon1">{{ entry_return_BOTTOKEN}}</span>
+                                <input type="text" name="notificationTelegram_boot_token" id="notificationTelegram_boot_token"  value="{{ notificationTelegram_boot_token }}" placeholder="BOT_TOKEN" class="form-control" />
+                                <span class="input-group-btn"><button  class="btn btn-info " type="button"><i class="fa fa-bookmark"></i></button> </span>
                             </div>
+                            <br>
 
-                        {% endfor %}
+                            {% for key,val in notificationTelegram_chat_ids %}
+                                <br/>
+                                <div class="input-group col-lg-5">
+                                    <span class="input-group-addon" id="basic-addon1">{{ entry_return_chatID }}</span>
+                                    <input type="text" name="notificationTelegram_chat_ids[]" class="form-control"  value="{{ val }}" />
+                                    <span class="input-group-btn"><button  class="btn btn-danger removed" type="button"><i class="fa fa-trash-o"></i></button></span>
+                                </div>
+
+                            {% endfor %}
                         </div>
 
 
@@ -70,84 +70,84 @@
                         <div class="container">
 
 
-                        <div class="btn-toolbar" id="buttonKey">
+                            <div class="btn-toolbar" id="buttonKey">
 
 
-                        </div>
+                            </div>
 
                         </div>
 
                         <div class="container">
 
-                        <div class="input-group col-lg-5">
-                            <br/>
-                            <br/>
-                            <label for="exampleFormControlTextarea1">{{ entry_return_message }}</label>
-                            <br/>
-                            <textarea rows="10" cols="50" class="form-control" id="notificationTelegram_meassage" name="notificationTelegram_meassage" rows="3">{% if notificationTelegram_meassage == "" %} {{ entry_return_messag_text }} {% endif %}{% if notificationTelegram_meassage %}{{ notificationTelegram_meassage }}{% endif %}</textarea>
-                        </div>
-                        </div>
-
-
-
-
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label" for="input-status"></label>
-                        <div class="col-sm-10">
-
-
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label" for="order_alert">
-                                    {{ entry_send_order_alert }}
-                                </label>
-                                <div class="col-sm-2">
-                                    <input type="checkbox" name="notificationTelegram_order_alert" id="order_alert" {% if notificationTelegram_order_alert %} checked {% endif %} class="form-control" />
-                                </div>
-                            </div>
-
-
-
-
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label" for="customer_alert">
-                                    {{  entry_send_new_customer_alert }}
-                                </label>
-                                <div class="col-sm-2">
-                                    <input type="checkbox" name="notificationTelegram_customer_alert" id="notificationTelegram_customer_alert" {% if notificationTelegram_customer_alert %} checked {% endif %}  class="form-control" />
-                                </div>
-                            </div>
-
-
-
-
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label" for="return">
-                                    {{  entry_return_alert }}
-                                </label>
-                                <div class="col-sm-2">
-                                    <input type="checkbox" name="notificationTelegram_return_alert" id="return" {% if notificationTelegram_return_alert %} checked {% endif %}  class="form-control" />
-                                </div>
-                            </div>
-
-
-
-
-
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label" for="input-module_hello_world_status">{{ entry_status }}</label>
-                                <div class="col-sm-10">
-                                    <select name="notificationTelegram_status" id="notificationTelegram_status" class="form-control">
-                                        {% if notificationTelegram_status %}
-                                            <option value="1" selected>{{ text_enabled }}</option>
-                                            <option value="0">{{ text_disabled }}</option>
-                                        {% else  %}
-                                            <option value="1">{{ text_enabled }}</option>
-                                            <option value="0" selected>{{ text_disabled }}</option>
-                                        {% endif %}
-                                    </select>
-                                </div>
+                            <div class="input-group col-lg-5">
+                                <br/>
+                                <br/>
+                                <label for="exampleFormControlTextarea1">{{ entry_return_message }}</label>
+                                <br/>
+                                <textarea rows="10" cols="50" class="form-control" id="notificationTelegram_meassage" name="notificationTelegram_meassage" rows="3">{% if notificationTelegram_meassage == "" %} {{ entry_return_messag_text }} {% endif %}{% if notificationTelegram_meassage %}{{ notificationTelegram_meassage }}{% endif %}</textarea>
                             </div>
                         </div>
+
+
+
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="input-status"></label>
+                            <div class="col-sm-10">
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="order_alert">
+                                        {{ entry_send_order_alert }}
+                                    </label>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" name="notificationTelegram_order_alert" id="order_alert" {% if notificationTelegram_order_alert %} checked {% endif %} class="form-control" />
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="customer_alert">
+                                        {{  entry_send_new_customer_alert }}
+                                    </label>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" name="notificationTelegram_customer_alert" id="notificationTelegram_customer_alert" {% if notificationTelegram_customer_alert %} checked {% endif %}  class="form-control" />
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="return">
+                                        {{  entry_return_alert }}
+                                    </label>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" name="notificationTelegram_return_alert" id="return" {% if notificationTelegram_return_alert %} checked {% endif %}  class="form-control" />
+                                    </div>
+                                </div>
+
+
+
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="input-module_hello_world_status">{{ entry_status }}</label>
+                                    <div class="col-sm-10">
+                                        <select name="notificationTelegram_status" id="notificationTelegram_status" class="form-control">
+                                            {% if notificationTelegram_status %}
+                                                <option value="1" selected>{{ text_enabled }}</option>
+                                                <option value="0">{{ text_disabled }}</option>
+                                            {% else  %}
+                                                <option value="1">{{ text_enabled }}</option>
+                                                <option value="0" selected>{{ text_disabled }}</option>
+                                            {% endif %}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
                     </div>
@@ -163,29 +163,36 @@
     <script type="text/javascript">
 
 
+                var obj = ["order_id", "invoice_no",  "store_name", "store_url", "customer_id", "customer_group_id", "weight", "firstname", "lastname", "email", "telephone",  "payment_firstname", "payment_lastname", "payment_company", "payment_address_1", "payment_address_2", "payment_postcode", "payment_city", "payment_zone_id", "payment_zone", "payment_zone_code",  "payment_country",  "payment_address_format",  "payment_method", "payment_code", "shipping_firstname", "shipping_lastname", "shipping_company", "shipping_address_1", "shipping_address_2", "shipping_postcode", "shipping_city",  "shipping_zone",  "shipping_country",  "shipping_address_format", "shipping_custom_field", "shipping_method", "shipping_code", "comment", "total", "order_status_id", "order_status",   "currency_value", "date_added", "date_modified"];
+
+
+
         $( document ).ready(function() {
-
-
-            var obj = ["order_id", "invoice_no",  "store_name", "store_url", "customer_id", "customer_group_id", "weight", "firstname", "lastname", "email", "telephone",  "payment_firstname", "payment_lastname", "payment_company", "payment_address_1", "payment_address_2", "payment_postcode", "payment_city", "payment_zone_id", "payment_zone", "payment_zone_code",  "payment_country",  "payment_address_format",  "payment_method", "payment_code", "shipping_firstname", "shipping_lastname", "shipping_company", "shipping_address_1", "shipping_address_2", "shipping_postcode", "shipping_city",  "shipping_zone",  "shipping_country",  "shipping_address_format", "shipping_custom_field", "shipping_method", "shipping_code", "comment", "total", "order_status_id", "order_status",   "currency_value", "date_added", "date_modified"];
-
 
             $.each( obj, function( key, value ) {
 
-                $("#buttonKey").append('<div role="group" class="btn-group"> <button class="btn btn-info btn-sm buttonKey" keys="'+value+'" type="button">'+value+'</button> </div>');
+                $("#buttonKey").append('<div role="group"  class="btn-group"> <button onclick = "appenTextarea('+key+')" class="btn btn-info btn-sm buttonKey" keys="'+value+'" type="button">'+value+'</button> </div>');
 
             });
-
-
-            $(".buttonKey").click(function () {
-                $("#notificationTelegram_meassage").append(" {"+$(this).val()+"} ");
-            });
-
-
 
             removActive();
 
+
+
         });
 
+
+
+        function appenTextarea(key){
+
+            $("#notificationTelegram_meassage").focus();
+
+            $('#notificationTelegram_meassage').val(function(i, text) {
+            return text + "{"+obj[key]+"}";
+        });
+
+
+        }
 
 
         function appText(){
