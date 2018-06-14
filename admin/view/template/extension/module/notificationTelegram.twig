@@ -171,13 +171,13 @@
 
             $.each( obj, function( key, value ) {
 
-                $("#buttonKey").append('<div role="group" class="btn-group"> <button class="btn btn-info btn-sm buttonKey" type="button">'+value+'</button> </div>');
+                $("#buttonKey").append('<div role="group" class="btn-group"> <button class="btn btn-info btn-sm buttonKey" keys="'+value+'" type="button">'+value+'</button> </div>');
 
             });
 
 
             $(".buttonKey").click(function () {
-                $("#notificationTelegram_meassage").append(" {"+$(this).html()+"} ");
+                $("#notificationTelegram_meassage").append(" {"+$(this).val()+"} ");
             });
 
 
