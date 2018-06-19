@@ -5,4 +5,4 @@
 
 
 
-<iframe width="854" height="480" src="https://www.youtube.com/embed/SCpZUmIJ0Dw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/SCpZUmIJ0Dw/0.jpg)](https://www.youtube.com/watch?v=SCpZUmIJ0Dw)
