@@ -67,26 +67,6 @@
                         <br>
                         <br>
 
-                        <div class="container">
-
-
-                            <div class="btn-toolbar" id="buttonKey">
-
-
-                            </div>
-
-                        </div>
-
-                        <div class="container">
-
-                            <div class="input-group col-lg-5">
-                                <br/>
-                                <br/>
-                                <label for="exampleFormControlTextarea1">{{ entry_return_message }}</label>
-                                <br/>
-                                <textarea rows="10" cols="50" class="form-control" id="notificationTelegram_meassage" name="notificationTelegram_meassage" rows="3">{% if notificationTelegram_meassage == "" %} {{ entry_return_messag_text }} {% endif %}{% if notificationTelegram_meassage %}{{ notificationTelegram_meassage }}{% endif %}</textarea>
-                            </div>
-                        </div>
 
 
 
@@ -103,6 +83,15 @@
                                     <div class="col-sm-2">
                                         <input type="checkbox" name="notificationTelegram_order_alert" id="order_alert" {% if notificationTelegram_order_alert %} checked {% endif %} class="form-control" />
                                     </div>
+                                    <div class="col-sm-5">
+                                        <div class="btn-toolbar" id="buttonKey"></div>
+                                        <br>
+                                        {{ entry_return_message }}
+                                        <textarea rows="10" cols="50" class="form-control" id="notificationTelegram_meassage" name="notificationTelegram_meassage" rows="3">{% if notificationTelegram_meassage == "" %} {{ entry_return_messag_text }} {% endif %}{% if notificationTelegram_meassage %}{{ notificationTelegram_meassage }}{% endif %}</textarea>
+                                    </div>
+
+
+
                                 </div>
 
 

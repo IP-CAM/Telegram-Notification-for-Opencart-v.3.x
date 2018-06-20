@@ -19,3 +19,8 @@ vqmod/logs/*
 vqmod/vqcache/*
 vqmod/checked.cache
 vqmod/mods.cache
+admin/.DS_Store
+.DS_Store
+admin/view/.DS_Store
+admin/view/template/.DS_Store
+admin/view/template/extension/.DS_Store
