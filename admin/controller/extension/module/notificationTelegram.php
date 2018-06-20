@@ -1,5 +1,18 @@
 <?php
-class ControllerExtensionModuleNotificationTelegram extends Controller {
+    
+    /**
+     * Created by PhpStorm.
+     * User: basheir
+     * Date: 6 يون، 2018 م
+     * Time: 1:57 ص
+     * Version 1.2.0
+     */
+    
+    
+    
+    
+    
+    class ControllerExtensionModuleNotificationTelegram extends Controller {
 	private $error = array();
 
 	public function index() {
@@ -126,6 +139,16 @@ class ControllerExtensionModuleNotificationTelegram extends Controller {
 			$data['notificationTelegram_meassage'] = $this->config->get('notificationTelegram_meassage');
 		} else{
 			$data['notificationTelegram_meassage'] = '';
+		}
+
+		
+		
+        if(isset($this->request->post['notificationTelegram_new_account_meassage'])) {
+			$data['notificationTelegram_new_account_meassage'] = $this->request->post['notificationTelegram_new_account_meassage'];
+		} elseif ($this->config->get('notificationTelegram_new_account_meassage')){
+			$data['notificationTelegram_new_account_meassage'] = $this->config->get('notificationTelegram_new_account_meassage');
+		} else{
+			$data['notificationTelegram_new_account_meassage'] = '';
 		}
 
 

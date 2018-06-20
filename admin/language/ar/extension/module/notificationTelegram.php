@@ -1,5 +1,16 @@
 <?php
+    
+    /**
+     * Created by PhpStorm.
+     * User: basheir
+     * Date: 6 يون، 2018 م
+     * Time: 1:57 ص
+     * Version 1.2.0
+     */
+    
 
+    
+ $_['text_version'] = '1.2.0 ';
 
 
 // Heading
@@ -14,6 +25,8 @@ $_['text_success']     		= 'تم تعديل الاضافة بنجاح / Notifica
 $_['text_edit']        		= 'تعديل اعدادات Telegram Module';
 $_['text_sent_success']     =  'تم ارساله التنبيه بنجاح';
 $_['text_edit'] = 'تعديل تنبيهات / Notification Telegram';
+$_['text_new_account_messag'] = 'نص التنبيه ';
+
 
 // Entry
 $_['entry_status']     		= 'الحالة';
@@ -27,7 +40,8 @@ $_['entry_return_alert'] = 'تنبيه عند ارجاع طلب';
 $_['entry_return_message'] = 'نص التنبيه';
 $_['entry_return_chatID'] = 'Chat ID';
 $_['entry_return_BOTTOKEN'] = 'BOT_TOKEN';
- $_['entry_return_messag_text'] = 'لديك طلب جديد   orderID: {order_id} ';
+$_['entry_return_messag_text'] = 'لديك طلب جديد   orderID: {order_id} ';
+$_['entry_new_account_messag_text'] = 'عميل جديد   : {firstname}   ';
 
 // Help
 

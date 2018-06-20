@@ -1,5 +1,15 @@
 <?php
-
+    
+    /**
+     * Created by PhpStorm.
+     * User: basheir
+     * Date: 6 يون، 2018 م
+     * Time: 1:57 ص
+     * Version 1.2.0
+     */
+    
+    
+$_['text_version'] = '1.2.0 ';
 
 
 // Heading
@@ -26,6 +36,7 @@ $_['text_success'] = 'Success: You have modified Notification Telegram module!';
 $_['text_edit'] = 'Edit Notification Telegram Module';
 $_['text_sent_success'] = 'Alert sent successfully!';
 $_['text_edit'] = 'Notify Telegram notifications';
+$_['text_new_account_messag'] = 'Message Alert ';
 
 // Entry
 $_['entry_status'] = 'Status';
@@ -40,6 +51,7 @@ $_['entry_return_message'] = 'Message';
 $_['entry_return_chatID'] = 'Chat ID';
 $_['entry_return_BOTTOKEN'] = 'BOT_TOKEN';
 $_['entry_return_messag_text'] = 'You Have New Order  orderID: {order_id} ';
+$_['entry_new_account_messag_text'] = 'You Have New Account  Firstname: {firstname}   ';
 
 
 
