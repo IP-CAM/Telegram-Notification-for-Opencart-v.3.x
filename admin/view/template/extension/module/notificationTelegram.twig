@@ -83,8 +83,9 @@
                                     <div class="col-sm-2">
                                         <input type="checkbox" name="notificationTelegram_order_alert" id="order_alert" {% if notificationTelegram_order_alert %} checked {% endif %} class="form-control" />
                                     </div>
+
                                     <div class="col-sm-5">
-                                        <div class="btn-toolbar" id="buttonKey"></div>
+                                        <div class="btn-toolbar" class="btn-group btn-group-justified" role="group" id="buttonKey"></div>
                                         <br>
                                         {{ entry_return_message }}
                                         <textarea rows="10" cols="50" class="form-control" id="notificationTelegram_meassage" name="notificationTelegram_meassage" rows="3">{% if notificationTelegram_meassage == "" %} {{ entry_return_messag_text }} {% endif %}{% if notificationTelegram_meassage %}{{ notificationTelegram_meassage }}{% endif %}</textarea>
@@ -165,8 +166,8 @@
 
 
 
-                var obj = ["order_id", "invoice_no",  "store_name", "store_url", "customer_id", "customer_group_id", "weight", "firstname", "lastname", "email", "telephone",  "payment_firstname", "payment_lastname", "payment_company", "payment_address_1", "payment_address_2", "payment_postcode", "payment_city", "payment_zone_id", "payment_zone", "payment_zone_code",  "payment_country",  "payment_address_format",  "payment_method", "payment_code", "shipping_firstname", "shipping_lastname", "shipping_company", "shipping_address_1", "shipping_address_2", "shipping_postcode", "shipping_city",  "shipping_zone",  "shipping_country",  "shipping_address_format", "shipping_custom_field", "shipping_method", "shipping_code", "comment", "total", "order_status_id", "order_status",   "currency_value", "date_added", "date_modified"];
-                var objNewAccount = ["firstname", "lastname",  "email",  "telephone"];
+        var obj = ["order_id",  "store_name", "customer_id","firstname", "lastname", "email", "telephone",  "payment_firstname", "payment_lastname", "payment_address_1", "payment_address_2",  "payment_city", "payment_zone",  "payment_country",  "payment_address_format",  "payment_method",  "shipping_firstname", "shipping_lastname", "shipping_company", "shipping_address_1", "shipping_address_2", "shipping_postcode", "shipping_city",  "shipping_zone",  "shipping_country",  "shipping_address_format", "shipping_method", "comment", "total", "order_status_id", "order_status",   "currency_value", "date_added", "date_modified","products"];
+        var objNewAccount = ["firstname", "lastname",  "email",  "telephone"];
 
 
 
@@ -174,13 +175,13 @@
 
             $.each( obj, function( key, value ) {
 
-                $("#buttonKey").append('<div role="group"  class="btn-group"> <button onclick = "appenTextarea('+key+')" class="btn btn-info btn-sm buttonKey" keys="'+value+'" type="button">'+value+'</button> </div>');
+                $("#buttonKey").append(' <button onclick = "appenTextarea('+key+')" style="margin:2px;" class="btn btn-info buttonKey" keys="'+value+'" type="button">'+value+'</button>');
 
             });
 
 
 
-             $.each( objNewAccount, function( key, value ) {
+            $.each( objNewAccount, function( key, value ) {
 
                 $("#buttonKeyNewAccount").append('<div role="group"  class="btn-group"> <button onclick = "appenTextareaNewAccount('+key+')" class="btn btn-info btn-sm buttonKey" keys="'+value+'" type="button">'+value+'</button> </div>');
 
@@ -204,11 +205,11 @@
         function appenTextarea(key){
 
 
-                var $txt = jQuery("#notificationTelegram_meassage");
-                  var caretPos = $txt[0].selectionStart;
-                  var textAreaTxt = $txt.val();
-                  var txtToAdd = "{"+obj[key]+"}";
-                  $txt.val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos) );
+            var $txt = jQuery("#notificationTelegram_meassage");
+            var caretPos = $txt[0].selectionStart;
+            var textAreaTxt = $txt.val();
+            var txtToAdd = "{"+obj[key]+"}";
+            $txt.val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos) );
 
 
 
@@ -219,11 +220,11 @@
         function appenTextareaNewAccount(key){
 
 
-                var $txt = jQuery("#notificationTelegram_new_account_meassage");
-                  var caretPos = $txt[0].selectionStart;
-                  var textAreaTxt = $txt.val();
-                  var txtToAdd = "{"+objNewAccount[key]+"}";
-                  $txt.val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos) );
+            var $txt = jQuery("#notificationTelegram_new_account_meassage");
+            var caretPos = $txt[0].selectionStart;
+            var textAreaTxt = $txt.val();
+            var txtToAdd = "{"+objNewAccount[key]+"}";
+            $txt.val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos) );
 
 
 
