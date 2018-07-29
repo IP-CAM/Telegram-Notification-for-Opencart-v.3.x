@@ -14,25 +14,37 @@
         
         public function sendOrderAlert(&$route, &$data, &$output)
         {
-            
-            
-            
-            
-            
+
+
+
             $order_id = $data[0];
             $this->load->model('checkout/order');
             $order_info = $this->model_checkout_order->getOrder($order_id);
-            
+
             $this->load->model('setting/setting');
             $setting = $this->model_setting_setting->getSetting('notificationTelegram');
-            
+
+
+
+
             if (isset($setting['notificationTelegram_order_alert'])) {
                 
                 $this->load->model('account/order');
                 if (count($this->model_account_order->getOrderHistories($order_id)) <= 1) {
                     $message = $this->replaceMessage($setting['notificationTelegram_meassage'],$order_info);
 //                    $message .= $this->buldArray($order_info);
+
                     $this->sendMessagetoTelegam($message);
+
+
+
+                    // اذا موجود كلمة منتجات
+                    if (strpos(strtolower($setting['notificationTelegram_meassage']), '{products}') !== false) {
+                        $order_products = $this->model_checkout_order->getOrderProducts($order_id);
+                        $products = $this->bulidProducts($order_products);
+                        $this->sendMessagetoTelegam($products);
+
+                    }
                 }
                 
             }
@@ -120,6 +132,10 @@
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             $result = curl_exec($ch);
             curl_close($ch);
+
+//            var_dump($result);
+//            exit;
+
             
         }
         
@@ -149,6 +165,20 @@
                 return $arr[$match[1]];
             }, $string );
             
+        }
+
+
+
+        protected function  bulidProducts($products){
+
+            $pr = array();
+
+            foreach ($products as $product){
+                $pr[] = "Name : $product[name]  \n    Price: $product[price] \n qty : $product[quantity] ";
+            }
+
+            return implode("------- \n",$pr);
+
         }
         
         
