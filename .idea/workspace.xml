@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="15cf1628-58d3-4392-9836-cd02bb93893e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/admin/controller/extension/module/notificationTelegram.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/controller/extension/module/notificationTelegram.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/language/ar/extension/module/notificationTelegram.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/language/ar/extension/module/notificationTelegram.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/language/en-gb/extension/module/notificationTelegram.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/language/en-gb/extension/module/notificationTelegram.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/view/template/extension/module/notificationTelegram.twig" beforeDir="false" afterPath="$PROJECT_DIR$/admin/view/template/extension/module/notificationTelegram.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog/controller/extension/module/notificationTelegram.php" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/controller/extension/module/notificationTelegram.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,11 +36,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="php" value="14" />
           <entry key="twig" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+          <entry key="PHP" value="14" />
           <entry key="Twig" value="17" />
         </counts>
       </usages-collector>
@@ -47,7 +53,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/catalog/controller/extension/module/notificationTelegram.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1984" />
+            <state relative-caret-position="390">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+              <folding>
+                <element signature="e#10#144#0#PHP" expanded="true" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
@@ -65,6 +76,14 @@
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>* Created by PhpStorm.</find>
+    </findStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$</dir>
+    </dirStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -72,6 +91,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/admin/view/template/extension/module/notificationTelegram.twig" />
+        <option value="$PROJECT_DIR$/catalog/controller/extension/module/notificationTelegram.php" />
       </list>
     </option>
   </component>
@@ -169,12 +189,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1532836887230</updated>
-      <workItem from="1532836889453" duration="617000" />
+      <workItem from="1532836889453" duration="748000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="617000" />
+    <option name="totallyTimeSpent" value="748000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="933" extended-state="0" />
@@ -220,7 +240,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/catalog/controller/extension/module/notificationTelegram.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1984" />
+        <state relative-caret-position="390">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="e#10#144#0#PHP" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>
