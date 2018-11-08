@@ -1,60 +1,60 @@
 <?php
-    
-    /**
-     * Created by Basheir Hassan.
-     * User: basheir
-     * Date: 6 يون، 2018 م
-     * Time: 1:57 ص
-     * Version 1.2.1
-     */
-    
-    
-    
-    
-    
-    class ControllerExtensionModuleNotificationTelegram extends Controller {
-	private $error = array();
 
-	public function index() {
+/**
+ * Created by Basheir Hassan.
+ * User: basheir
+ * Date: 6 يون، 2018 م
+ * Time: 1:57 ص
+ * Version 1.2.2
+ */
 
-		$this->load->language('extension/module/notificationTelegram');
 
-		$this->document->setTitle($this->language->get('heading_title'));
 
-		$this->load->model('setting/setting');
 
-		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
-			$this->model_setting_setting->editSetting('notificationTelegram', $this->request->post);
-			$this->session->data['success'] = $this->language->get('text_success');
 
-			$this->response->redirect($this->url->link('marketplace/extension', 'user_token=' . $this->session->data['user_token'] . '&type=module', true));
-		}
+class ControllerExtensionModuleNotificationTelegram extends Controller {
+    private $error = array();
 
-		if (isset($this->error['notificationTelegram_boot_token'])) {
-			$data['error_no_key'] = $this->error['notificationTelegram_boot_token'];
-		} else {
-			$data['error_no_key'] = '';
-		}
+    public function index() {
 
-		$data['breadcrumbs'] = array();
+        $this->load->language('extension/module/notificationTelegram');
 
-		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/dashboard', 'user_token=' . $this->session->data['user_token'], true)
-			);
+        $this->document->setTitle($this->language->get('heading_title'));
 
-		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('text_extension'),
-			'href' => $this->url->link('marketplace/extension', 'user_token=' . $this->session->data['user_token'] . '&type=module', true)
-			);
+        $this->load->model('setting/setting');
 
-		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('extension/module/notificationTelegram', 'user_token=' . $this->session->data['user_token'], true)
-			);
+        if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
+            $this->model_setting_setting->editSetting('notificationTelegram', $this->request->post);
+            $this->session->data['success'] = $this->language->get('text_success');
 
-		$data['action'] = $this->url->link('extension/module/notificationTelegram', 'user_token=' . $this->session->data['user_token'], true);
-		$data['cancel'] = $this->url->link('marketplace/extension', 'user_token=' . $this->session->data['user_token'] . '&type=module', true);
+            $this->response->redirect($this->url->link('marketplace/extension', 'user_token=' . $this->session->data['user_token'] . '&type=module', true));
+        }
+
+        if (isset($this->error['notificationTelegram_boot_token'])) {
+            $data['error_no_key'] = $this->error['notificationTelegram_boot_token'];
+        } else {
+            $data['error_no_key'] = '';
+        }
+
+        $data['breadcrumbs'] = array();
+
+        $data['breadcrumbs'][] = array(
+            'text' => $this->language->get('text_home'),
+            'href' => $this->url->link('common/dashboard', 'user_token=' . $this->session->data['user_token'], true)
+        );
+
+        $data['breadcrumbs'][] = array(
+            'text' => $this->language->get('text_extension'),
+            'href' => $this->url->link('marketplace/extension', 'user_token=' . $this->session->data['user_token'] . '&type=module', true)
+        );
+
+        $data['breadcrumbs'][] = array(
+            'text' => $this->language->get('heading_title'),
+            'href' => $this->url->link('extension/module/notificationTelegram', 'user_token=' . $this->session->data['user_token'], true)
+        );
+
+        $data['action'] = $this->url->link('extension/module/notificationTelegram', 'user_token=' . $this->session->data['user_token'], true);
+        $data['cancel'] = $this->url->link('marketplace/extension', 'user_token=' . $this->session->data['user_token'] . '&type=module', true);
 
 
 
@@ -70,102 +70,117 @@
 
 
 
-		//الكي الخاص باالتطبيق
-		if(isset($this->request->post['notificationTelegram_boot_token'])) {
-			$data['notificationTelegram_boot_token'] = $this->request->post['notificationTelegram_boot_token'];
-		} elseif ($this->config->get('notificationTelegram_boot_token')){
-			$data['notificationTelegram_boot_token'] = $this->config->get('notificationTelegram_boot_token');
-		} else{
-			$data['notificationTelegram_boot_token'] = '';
-		}
+        //الكي الخاص باالتطبيق
+        if(isset($this->request->post['notificationTelegram_boot_token'])) {
+            $data['notificationTelegram_boot_token'] = $this->request->post['notificationTelegram_boot_token'];
+        } elseif ($this->config->get('notificationTelegram_boot_token')){
+            $data['notificationTelegram_boot_token'] = $this->config->get('notificationTelegram_boot_token');
+        } else{
+            $data['notificationTelegram_boot_token'] = '';
+        }
 
 
 
-			//الكي الخاص باالتطبيق
-		if(isset($this->request->post['notificationTelegram_order_alert'])) {
-			$data['notificationTelegram_order_alert'] = $this->request->post['notificationTelegram_order_alert'];
-		} elseif ($this->config->get('notificationTelegram_order_alert')){
-			$data['notificationTelegram_order_alert'] = $this->config->get('notificationTelegram_order_alert');
-		} else{
-			$data['notificationTelegram_order_alert'] = '';
-		}
+        //الكي الخاص باالتطبيق
+        if(isset($this->request->post['notificationTelegram_order_alert'])) {
+            $data['notificationTelegram_order_alert'] = $this->request->post['notificationTelegram_order_alert'];
+        } elseif ($this->config->get('notificationTelegram_order_alert')){
+            $data['notificationTelegram_order_alert'] = $this->config->get('notificationTelegram_order_alert');
+        } else{
+            $data['notificationTelegram_order_alert'] = '';
+        }
 
 
 
-			//الكي الخاص باالتطبيق
-		if(isset($this->request->post['notificationTelegram_customer_alert'])) {
-			$data['notificationTelegram_customer_alert'] = $this->request->post['notificationTelegram_customer_alert'];
-		} elseif ($this->config->get('notificationTelegram_customer_alert')){
-			$data['notificationTelegram_customer_alert'] = $this->config->get('notificationTelegram_customer_alert');
-		} else{
-			$data['notificationTelegram_customer_alert'] = '';
-		}
+        //الكي الخاص باالتطبيق
+        if(isset($this->request->post['notificationTelegram_customer_alert'])) {
+            $data['notificationTelegram_customer_alert'] = $this->request->post['notificationTelegram_customer_alert'];
+        } elseif ($this->config->get('notificationTelegram_customer_alert')){
+            $data['notificationTelegram_customer_alert'] = $this->config->get('notificationTelegram_customer_alert');
+        } else{
+            $data['notificationTelegram_customer_alert'] = '';
+        }
 
 
 
-			//الكي الخاص باالتطبيق
-		if(isset($this->request->post['notificationTelegram_status'])) {
-			$data['notificationTelegram_status'] = $this->request->post['notificationTelegram_status'];
-		} elseif ($this->config->get('notificationTelegram_status')){
-			$data['notificationTelegram_status'] = $this->config->get('notificationTelegram_status');
-		} else{
-			$data['notificationTelegram_status'] = '';
-		}
+        //الكي الخاص باالتطبيق
+        if(isset($this->request->post['notificationTelegram_status'])) {
+            $data['notificationTelegram_status'] = $this->request->post['notificationTelegram_status'];
+        } elseif ($this->config->get('notificationTelegram_status')){
+            $data['notificationTelegram_status'] = $this->config->get('notificationTelegram_status');
+        } else{
+            $data['notificationTelegram_status'] = '';
+        }
 
 
-		if(isset($this->request->post['notificationTelegram_chat_ids'])) {
-			$data['notificationTelegram_chat_ids'] = $this->request->post['notificationTelegram_chat_ids'];
-		} elseif ($this->config->get('notificationTelegram_chat_ids')){
-			$data['notificationTelegram_chat_ids'] = $this->config->get('notificationTelegram_chat_ids');
-		} else{
-			$data['notificationTelegram_chat_ids'] = '';
-		}
+        if(isset($this->request->post['notificationTelegram_chat_ids'])) {
+            $data['notificationTelegram_chat_ids'] = $this->request->post['notificationTelegram_chat_ids'];
+        } elseif ($this->config->get('notificationTelegram_chat_ids')){
+            $data['notificationTelegram_chat_ids'] = $this->config->get('notificationTelegram_chat_ids');
+        } else{
+            $data['notificationTelegram_chat_ids'] = '';
+        }
 
 
 
-		if(isset($this->request->post['notificationTelegram_return_alert'])) {
-			$data['notificationTelegram_return_alert'] = $this->request->post['notificationTelegram_return_alert'];
-		} elseif ($this->config->get('notificationTelegram_return_alert')){
-			$data['notificationTelegram_return_alert'] = $this->config->get('notificationTelegram_return_alert');
-		} else{
-			$data['notificationTelegram_return_alert'] = '';
-		}
+        if(isset($this->request->post['notificationTelegram_return_alert'])) {
+            $data['notificationTelegram_return_alert'] = $this->request->post['notificationTelegram_return_alert'];
+        } elseif ($this->config->get('notificationTelegram_return_alert')){
+            $data['notificationTelegram_return_alert'] = $this->config->get('notificationTelegram_return_alert');
+        } else{
+            $data['notificationTelegram_return_alert'] = '';
+        }
 
-		
-		
+
+
         if(isset($this->request->post['notificationTelegram_meassage'])) {
-			$data['notificationTelegram_meassage'] = $this->request->post['notificationTelegram_meassage'];
-		} elseif ($this->config->get('notificationTelegram_meassage')){
-			$data['notificationTelegram_meassage'] = $this->config->get('notificationTelegram_meassage');
-		} else{
-			$data['notificationTelegram_meassage'] = '';
-		}
+            $data['notificationTelegram_meassage'] = $this->request->post['notificationTelegram_meassage'];
+        } elseif ($this->config->get('notificationTelegram_meassage')){
+            $data['notificationTelegram_meassage'] = $this->config->get('notificationTelegram_meassage');
+        } else{
+            $data['notificationTelegram_meassage'] = '';
+        }
 
-		
-		
+
+
         if(isset($this->request->post['notificationTelegram_new_account_meassage'])) {
-			$data['notificationTelegram_new_account_meassage'] = $this->request->post['notificationTelegram_new_account_meassage'];
-		} elseif ($this->config->get('notificationTelegram_new_account_meassage')){
-			$data['notificationTelegram_new_account_meassage'] = $this->config->get('notificationTelegram_new_account_meassage');
-		} else{
-			$data['notificationTelegram_new_account_meassage'] = '';
-		}
+            $data['notificationTelegram_new_account_meassage'] = $this->request->post['notificationTelegram_new_account_meassage'];
+        } elseif ($this->config->get('notificationTelegram_new_account_meassage')){
+            $data['notificationTelegram_new_account_meassage'] = $this->config->get('notificationTelegram_new_account_meassage');
+        } else{
+            $data['notificationTelegram_new_account_meassage'] = '';
+        }
+
+
+
+        if(isset($this->request->post['notificationTelegram_product_meassage'])) {
+            $data['notificationTelegram_product_meassage'] = $this->request->post['notificationTelegram_product_meassage'];
+        } elseif ($this->config->get('notificationTelegram_product_meassage')){
+            $data['notificationTelegram_product_meassage'] = $this->config->get('notificationTelegram_product_meassage');
+        } else{
+            $data['notificationTelegram_product_meassage'] = '';
+        }
+
+        if(isset($this->request->post['notificationTelegram_product_alert'])) {
+            $data['notificationTelegram_product_alert'] = $this->request->post['notificationTelegram_product_alert'];
+        } elseif ($this->config->get('notificationTelegram_product_alert')){
+            $data['notificationTelegram_product_alert'] = $this->config->get('notificationTelegram_product_alert');
+        } else{
+            $data['notificationTelegram_product_alert'] = '';
+        }
 
 
 
 
 
 
+        $data['header'] =      $this->load->controller('common/header');
+        $data['column_left'] = $this->load->controller('common/column_left');
+        $data['footer'] =      $this->load->controller('common/footer');
 
 
-
-		$data['header'] =      $this->load->controller('common/header');
-		$data['column_left'] = $this->load->controller('common/column_left');
-		$data['footer'] =      $this->load->controller('common/footer');
-
-
-		$this->response->setOutput($this->load->view('extension/module/notificationTelegram', $data));
-	}
+        $this->response->setOutput($this->load->view('extension/module/notificationTelegram', $data));
+    }
 
 
 
@@ -181,7 +196,7 @@
 
 
     public function uninstall(){
-	    $this->load->model('setting/setting');
+        $this->load->model('setting/setting');
         $this->model_setting_setting->deleteSetting('notificationTelegram');
     }
 
@@ -225,14 +240,14 @@
 
     protected function validate() {
 
-		if (!$this->user->hasPermission('modify', 'extension/module/notificationTelegram')) {
-			$this->error['warning'] = $this->language->get('error_permission');
-		}
+        if (!$this->user->hasPermission('modify', 'extension/module/notificationTelegram')) {
+            $this->error['warning'] = $this->language->get('error_permission');
+        }
 
-		if (!$this->request->post['notificationTelegram_boot_token']) {
-			$this->error['notificationTelegram_boot_token'] = $this->language->get('error_no_key');
-		}
+        if (!$this->request->post['notificationTelegram_boot_token']) {
+            $this->error['notificationTelegram_boot_token'] = $this->language->get('error_no_key');
+        }
 
-		return !$this->error;
-	}
+        return !$this->error;
+    }
 }

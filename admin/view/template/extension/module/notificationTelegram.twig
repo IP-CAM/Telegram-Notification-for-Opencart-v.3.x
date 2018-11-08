@@ -122,6 +122,32 @@
 
 
 
+
+
+                                <div class="form-group">
+
+
+                                    <label class="col-sm-3 control-label" for="customer_alert">
+                                        {{  entry_send_product_alert }}
+                                    </label>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" name="notificationTelegram_product_alert" id="notificationTelegram_product_alert" {% if notificationTelegram_product_alert %} checked {% endif %}  class="form-control" />
+                                    </div>
+
+                                    <div class="container">
+                                        <div class="input-group col-lg-5">
+                                            <br/>
+                                            <div class="btn-toolbar" id="buttonKeyProduct"></div>
+                                            <label for="exampleFormControlTextarea1">{{ text_product_messag }}</label>
+                                            <textarea rows="3" cols="50" class="form-control" id="notificationTelegram_product_meassage" name="notificationTelegram_product_meassage">{% if notificationTelegram_product_meassage == "" %} {{ entry_product_messag_text }} {% endif %}{% if notificationTelegram_product_meassage %}{{ notificationTelegram_product_meassage }}{% endif %}</textarea>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label" for="return">
                                         {{  entry_return_alert }}
@@ -166,8 +192,9 @@
 
 
 
-        var obj = ["order_id",  "store_name", "customer_id","firstname", "lastname", "email", "telephone",  "payment_firstname", "payment_lastname", "payment_address_1", "payment_address_2",  "payment_city", "payment_zone",  "payment_country",  "payment_address_format",  "payment_method",  "shipping_firstname", "shipping_lastname", "shipping_company", "shipping_address_1", "shipping_address_2", "shipping_postcode", "shipping_city",  "shipping_zone",  "shipping_country",  "shipping_address_format", "shipping_method", "comment", "total", "order_status_id", "order_status",   "currency_value", "date_added", "date_modified","products"];
+        var obj = ["order_id",  "store_name", "customer_id","firstname", "lastname", "email", "telephone",  "payment_firstname", "payment_lastname", "payment_address_1", "payment_address_2",  "payment_city", "payment_zone",  "payment_country",  "payment_address_format",  "payment_method",  "shipping_firstname", "shipping_lastname", "shipping_company", "shipping_address_1", "shipping_address_2", "shipping_postcode", "shipping_city",  "shipping_zone",  "shipping_country",  "shipping_address_format", "shipping_method", "comment", "total", "order_status_id", "order_status",   "currency_value", "date_added", "date_modified"];
         var objNewAccount = ["firstname", "lastname",  "email",  "telephone"];
+        var objProduct = ["name", "price",  "qty"];
 
 
 
@@ -184,6 +211,13 @@
             $.each( objNewAccount, function( key, value ) {
 
                 $("#buttonKeyNewAccount").append('<div role="group"  class="btn-group"> <button onclick = "appenTextareaNewAccount('+key+')" class="btn btn-info btn-sm buttonKey" keys="'+value+'" type="button">'+value+'</button> </div>');
+
+            });
+
+
+            $.each( objProduct, function( key, value ) {
+
+                $("#buttonKeyProduct").append('<div role="group"  class="btn-group"> <button onclick = "appenTextareaProduct('+key+')" class="btn btn-info btn-sm buttonKey" keys="'+value+'" type="button">'+value+'</button> </div>');
 
             });
 
@@ -225,10 +259,21 @@
             var textAreaTxt = $txt.val();
             var txtToAdd = "{"+objNewAccount[key]+"}";
             $txt.val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos) );
-
-
-
         }
+
+        function appenTextareaProduct(key){
+
+
+            var $txt = jQuery("#notificationTelegram_product_meassage");
+            var caretPos = $txt[0].selectionStart;
+            var textAreaTxt = $txt.val();
+            var txtToAdd = "{"+objProduct[key]+"}";
+            $txt.val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos) );
+        }
+
+
+
+
 
 
         function appText(){
