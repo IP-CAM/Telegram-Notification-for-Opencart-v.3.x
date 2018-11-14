@@ -4,7 +4,7 @@
  * User: basheir
  * Date: 6 يون، 2018 م
  * Time: 1:57 ص
- * Version 1.2.2
+ * Version 1.2.3
  */
 
 
@@ -181,8 +181,8 @@ class ControllerExtensionModuleNotificationTelegram extends Controller
         foreach ($products as $product){
 //                $pr[] = "name : $product[name]  \n    price: $product[price] \n qty : $product[quantity] ";
 
-            $search  = array('{name}', '{price}', '{qty}');
-            $replace = array($product['name'], $product['price'], $product['quantity']);
+            $search  = array('{order_product_id}','{order_id}','{product_id}','{name}','{model}','{quantity}', '{price}', '{total}', '{tax}', '{reward}');
+            $replace = array($product['order_product_id'], $product['order_id'], $product['product_id'], $product['name'], $product['model'], $product['quantity'], $product['price'], $product['total'], $product['tax'], $product['reward']);
             $subject = $setting['notificationTelegram_product_meassage'];
             $message .= str_replace($search, $replace, $subject);
 
