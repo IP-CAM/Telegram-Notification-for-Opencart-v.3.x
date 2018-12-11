@@ -1,6 +1,8 @@
 {{ header }}
 {{ column_left }}
 
+
+
 <div id="content">
     <div class="page-header">
         <div class="container-fluid">
@@ -19,6 +21,7 @@
     </div>
 
 
+
     <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-push" class="form-horizontal">
 
 
@@ -32,6 +35,18 @@
                 <div class="panel-body">
 
                     <div id="status"></div>
+
+                    {% if error_no_key %}
+                        <div class="alert alert-danger" role="alert">{{ error_no_key }}</div>
+                    {% endif %}
+
+
+                    {% if error_no_chat_ids %}
+                        <div class="alert alert-danger" role="alert">{{ error_no_chat_ids }}</div>
+                    {% endif %}
+
+
+
 
 
                     <div class="container col-lg-12 col-md-12">
@@ -288,7 +303,7 @@
 
         var obj = ["order_id", "store_name", "customer_id", "firstname", "lastname", "email", "telephone", "payment_firstname", "payment_lastname", "payment_address_1", "payment_address_2", "payment_city", "payment_zone", "payment_country", "payment_address_format", "payment_method", "shipping_firstname", "shipping_lastname", "shipping_company", "shipping_address_1", "shipping_address_2", "shipping_postcode", "shipping_city", "shipping_zone", "shipping_country", "shipping_address_format", "shipping_method", "comment", "total", "order_status_id", "order_status", "currency_value", "date_added", "date_modified"];
         var objNewAccount = ["firstname", "lastname", "email", "telephone"];
-        var objProduct = ["order_product_id", "order_id", "product_id", "name", "model", "quantity", "price", "total", "tax", "reward"];
+        var objProduct = ["order_product_id", "order_id", "product_id", "name", "model", "quantity", "price", "total", "tax", "reward", "product_url"];
 
 
         $(document).ready(function () {

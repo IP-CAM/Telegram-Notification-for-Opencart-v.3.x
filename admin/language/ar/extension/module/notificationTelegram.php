@@ -5,12 +5,12 @@
  * User: basheir
  * Date: 6 يون، 2018 م
  * Time: 1:57 ص
- * Version 1.2.3
+ * Version 1.2.5
  */
 
 
 
-$_['text_version'] = '1.2.3 ';
+$_['text_version'] = '1.2.5 ';
 
 
 // Heading
@@ -53,5 +53,6 @@ $_['entry_product_messag_text'] = 'مادة :{name}  سعر:{price}  كمية :{
 $_['error_permission'] 		= 'لاتمتلك صلاحيات لتعديل الاضافة Notification Telegram module!';
 $_['error_sent_notfction'] = 'لايمكن ارسال اتنبيه - الرجاء التحقق من الاعدادات';
 $_['error_no_key'] = 'لم تقم بادخال - BOT_TOKEN';
+$_['error_no_chat_ids'] = 'لم تقم بادخال - ChatID';
 
 

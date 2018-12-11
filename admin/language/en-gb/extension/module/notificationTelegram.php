@@ -5,11 +5,11 @@
  * User: basheir
  * Date: 6 يون، 2018 م
  * Time: 1:57 ص
- * Version 1.2.3
+ * Version 1.2.5
  */
 
 
-$_['text_version'] = '1.2.3 ';
+$_['text_version'] = '1.2.5 ';
 
 
 // Heading
@@ -61,3 +61,4 @@ $_['entry_product_messag_text'] = "Name:{name}  Price:{price}  Quantity:{qty} \n
 $_['error_permission'] = 'Warning: You do not have permission to modify Notification Telegram module!';
 $_['error_sent_notfction'] = 'Can not send an alert - please check the settings';
 $_['error_no_key'] = 'You did not enter - BOT_TOKEN';
+$_['error_no_chat_ids'] = 'You did not enter - ChatID';
