@@ -2,7 +2,6 @@
 {{ column_left }}
 
 
-
 <div id="content">
     <div class="page-header">
         <div class="container-fluid">
@@ -21,8 +20,7 @@
     </div>
 
 
-
-    <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-push" class="form-horizontal">
+    <form action="{{ action }}" method="post" id="form-push" class="form-horizontal">
 
 
         <div class="container-fluid">
@@ -46,61 +44,56 @@
                     {% endif %}
 
 
+                    <div class="container col-12">
+
+                        <div class="row">
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <button type="button" form="form-push" onclick="appText();"
+                                                    data-toggle="tooltip" title="" class="btn btn-primary"
+                                                    data-original-title="Add Chat IDs"><i class="fa fa-plus"></i>
+                                            </button>
+
+                                        </div>
+                                        <div class="col-md-1">
+                                            <button type="button" id="test" data-toggle="tooltip" title=""
+                                                    class="btn btn-primary"
+                                                    data-original-title="Test Push Notification"><i
+                                                        class="fa fa-comments-o "></i></button>
+
+                                        </div>
 
 
 
-                    <div class="container col-lg-12 col-md-12">
-
-
-
-
-                        <div class="container">
-                            <div class="row row col-md-2">
-                                {#A-4#}
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <button type="button" form="form-push" onclick="appText();" data-toggle="tooltip"title="" class="btn btn-primary" data-original-title="Add Chat IDs"><i class="fa fa-plus"></i></button>
 
                                     </div>
-                                    <div class="col-md-6">
-                                        <button type="button" id="test" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Test Push Notification"><i class="fa fa-comments-o "></i>    </button>
 
-                                    </div>
                                 </div>
-
-                            </div>
-                        </div>
-
-
-
-
-                        <hr>
-                        <div class="container">
-                            <div class="row">
-
-
-                                {#A#}
-                                <div class="col-md-6 ">
-
-
-
-                                    <div class="row" id="groubChatID">
-                                        <div class="input-group col-md-12">
-                                            <span class="input-group-addon" id="basic-addon1">{{ entry_return_BOTTOKEN }}</span>
-                                            <input type="text" name="notificationTelegram_boot_token"
-                                                   id="notificationTelegram_boot_token"
-                                                   value="{{ notificationTelegram_boot_token }}" placeholder="BOT_TOKEN"
+                                <div class="panel-body">
+                                    <div class="row " id="groubChatID">
+                                        <div class="input-group col-md-6 input-boot-token">
+                                            <span class="input-group-addon">{{ entry_return_BOTTOKEN }}</span>
+                                            <input type="text" name="module_notificationTelegram_boot_token"
+                                                   id="module_notificationTelegram_boot_token"
+                                                   value="{{ module_notificationTelegram_boot_token }}"
+                                                   placeholder="BOT_TOKEN"
                                                    class="form-control"/>
                                             <span class="input-group-btn"><button class="btn btn-info " type="button"><i
                                                             class="fa fa-bookmark"></i></button> </span>
                                         </div>
-                                        <br>
 
-                                        {% for key,val in notificationTelegram_chat_ids %}
 
-                                            <div class="input-group col-lg-12 " style=" padding-top: 3px;" aria-hidden="true">
-                                                <span class="input-group-addon" id="basic-addon1">{{ entry_return_chatID }}</span>
-                                                <input type="text" name="notificationTelegram_chat_ids[]" class="form-control"
+                                        {% for key,val in module_notificationTelegram_chat_ids %}
+
+                                            <div class="input-group col-md-6 " style=" padding-top: 3px;"
+                                                 aria-hidden="true">
+                                            <span class="input-group-addon"
+                                                  id="basic-addon1">{{ entry_return_chatID }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                                <input type="text" name="module_notificationTelegram_chat_ids[]"
+                                                       class="form-control"
                                                        value="{{ val }}"/>
                                                 <span class="input-group-btn"><button class="btn btn-danger removed"
                                                                                       type="button"><i
@@ -110,189 +103,138 @@
                                         {% endfor %}
 
 
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            {#   Panel Alert#}
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading"><label class="control-label"
+                                                                  for="order_alert"> {{ entry_send_order_alert }}</label>
+                                    <input type="checkbox" name="module_notificationTelegram_order_alert"
+                                           id="order_alert" {% if module_notificationTelegram_order_alert %} checked {% endif %}/>
+                                </div>
+                                <div class="panel-body">
+
+                                    <div class="col-md-5 ">
+
+                                       <textarea rows="15" cols="50" class="form-control"
+                                                 id="module_notificationTelegram_meassage"
+                                                 name="module_notificationTelegram_meassage"
+                                                 rows="3">{% if module_notificationTelegram_meassage == "" %} {{ entry_return_messag_text }} {% endif %}{% if module_notificationTelegram_meassage %}{{ module_notificationTelegram_meassage }}{% endif %}</textarea>
 
                                     </div>
 
+                                    {#C#}
+                                    <div class="col-md-6 ">
 
-                                </div>
-
-
-                            </div>
-                        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        <hr>
-                        <div class="container">
-                            <div class="row">
-                                {#A -1 #}
-                                <div class="col-md-1 ">
-
-                                    <label class="control-label" for="order_alert">
-                                        {{ entry_send_order_alert }}
-                                    </label>
-                                    <input type="checkbox" name="notificationTelegram_order_alert" id="order_alert" {% if notificationTelegram_order_alert %} checked {% endif %}/>
-
-                                </div>
-
-                                {#B#}
-                                <div class="col-md-5 ">
-
-                                       <textarea rows="15" cols="50" class="form-control"
-                                                 id="notificationTelegram_meassage"
-                                                 name="notificationTelegram_meassage"
-                                                 rows="3">{% if notificationTelegram_meassage == "" %} {{ entry_return_messag_text }} {% endif %}{% if notificationTelegram_meassage %}{{ notificationTelegram_meassage }}{% endif %}</textarea>
-
-                                </div>
-
-                                {#C#}
-                                <div class="col-md-6 ">
-
-                                    <nav aria-label="..." >
-                                        <ul class="pager" id="buttonKey">
-                                        </ul>
-                                    </nav>
+                                        <nav aria-label="...">
+                                            <ul class="pager" id="buttonKey">
+                                            </ul>
+                                        </nav>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
 
+                            <div class="panel panel-default">
+                                <div class="panel-heading"><label class=" control-label"
+                                                                  for="module_notificationTelegram_customer_alert">{{ entry_send_new_customer_alert }}
+                                      </label>
+                                    <input type="checkbox" name="module_notificationTelegram_customer_alert"  id="module_notificationTelegram_customer_alert" {% if module_notificationTelegram_customer_alert %} checked {% endif %}/>
 
-                        <hr>
 
-                        <div class="container">
-                            <div class="row">
-                                {#A-2#}
-                                <div class="col-md-1 ">
-                                    <label class=" control-label" for="notificationTelegram_customer_alert">
-                                        {{ entry_send_new_customer_alert }}
-                                    </label>
-
-                                    <input type="checkbox" name="notificationTelegram_customer_alert"
-                                           id="notificationTelegram_customer_alert" {% if notificationTelegram_customer_alert %} checked {% endif %}
-                                           class="form-control"/>
                                 </div>
-
-                                {#B#}
-                                <div class="col-md-5 B">
+                                <div class="panel-body">
+                                    <div class="col-md-5 B">
 
                                     <textarea rows="5" cols="50" class="form-control"
-                                              id="notificationTelegram_new_account_meassage"
-                                              name="notificationTelegram_new_account_meassage">{% if notificationTelegram_new_account_meassage == "" %} {{ entry_new_account_messag_text }} {% endif %}{% if notificationTelegram_new_account_meassage %}{{ notificationTelegram_new_account_meassage }}{% endif %}</textarea>
+                                              id="module_notificationTelegram_new_account_meassage"
+                                              name="module_notificationTelegram_new_account_meassage">{% if module_notificationTelegram_new_account_meassage == "" %} {{ entry_new_account_messag_text }} {% endif %}{% if module_notificationTelegram_new_account_meassage %}{{ module_notificationTelegram_new_account_meassage }}{% endif %}</textarea>
 
-                                </div>
+                                    </div>
 
-                                {#C#}
-                                <div class="col-md-6 C">
+                                    {#C#}
+                                    <div class="col-md-6 C">
 
-                                    <nav aria-label="..." >
-                                        <ul class="pager" id="buttonKeyNewAccount">
-                                        </ul>
-                                    </nav>
+                                        <nav aria-label="...">
+                                            <ul class="pager" id="buttonKeyNewAccount">
+                                            </ul>
+                                        </nav>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
 
-
-
-
-                        <hr>
-
-                        <div class="container">
-                            <div class="row">
-                                {#A-3#}
-                                <div class="col-md-1 ">
-                                    <label class=" control-label" for="customer_alert">
-                                        {{ entry_send_product_alert }}
-                                    </label>
-
-                                    <input type="checkbox" name="notificationTelegram_product_alert"
-                                           id="notificationTelegram_product_alert" {% if notificationTelegram_product_alert %} checked {% endif %}
-                                           class="form-control"/>
+                            <div class="panel panel-default">
+                                <div class="panel-heading"><label class=" control-label"
+                                                                  for="customer_alert">{{ entry_send_product_alert }} </label>
+                                    <input type="checkbox" name="module_notificationTelegram_product_alert"
+                                           id="module_notificationTelegram_product_alert" {% if
+                                        module_notificationTelegram_product_alert %} checked {% endif %}
+                                          />
                                 </div>
 
-                                {#B#}
-                                <div class="col-md-5 B">
+                                <div class="panel-body">
+                                    <div class="col-md-5 B">
                                      <textarea rows="5" cols="50" class="form-control"
-                                               id="notificationTelegram_product_meassage"
-                                               name="notificationTelegram_product_meassage">{% if notificationTelegram_product_meassage == "" %} {{ entry_product_messag_text }} {% endif %}{% if notificationTelegram_product_meassage %}{{ notificationTelegram_product_meassage }}{% endif %}</textarea>
+                                               id="module_notificationTelegram_product_meassage"
+                                               name="module_notificationTelegram_product_meassage">{% if module_notificationTelegram_product_meassage == "" %} {{ entry_product_messag_text }} {% endif %}{% if module_notificationTelegram_product_meassage %}{{ module_notificationTelegram_product_meassage }}{% endif %}</textarea>
 
+                                    </div>
+
+                                    {#C#}
+                                    <div class="col-md-6 C">
+
+                                            <div class="pager" id="buttonKeyProduct">
+                                            </div>
+
+
+                                    </div>
                                 </div>
+                            </div>
 
-                                {#C#}
-                                <div class="col-md-6 C">
-                                    <nav aria-label="..." >
-                                        <ul class="pager" id="buttonKeyProduct">
-                                        </ul>
-                                    </nav>
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading"><label class=" control-label"
+                                                                  for="return"> {{ entry_return_alert }}</label>
+                                    <input type="checkbox" name="module_notificationTelegram_return_alert"
+                                           id="return" {% if module_notificationTelegram_return_alert %} checked {% endif %}
+                                          /></div>
+                                <div class="panel-body">
 
                                 </div>
                             </div>
+
+
                         </div>
+                    </div>
 
 
-                        <hr>
+                    <div class="row">
+                        <label class="col-sm-2 control-label"
+                               for="module_notificationTelegram_status">{{ entry_status }}</label>
 
-
-
-                        <div class="container">
-                            <div class="row">
-                                {#A-4#}
-                                <div class="col-md-4 ">
-                                    <label class=" control-label" for="return">
-                                        {{ entry_return_alert }}
-                                    </label>
-                                </div>
-
-                                {#B#}
-                                <div class="col-md-6 ">
-                                    <input type="checkbox" name="notificationTelegram_return_alert"
-                                           id="return" {% if notificationTelegram_return_alert %} checked {% endif %}
-                                           class="form-control"/>
-                                </div>
-
-                                {#C#}
-                                <div class="col-md-2 ">
-
-                                </div>
-                            </div>
+                        <div class="col-sm-10">
+                            <select name="module_notificationTelegram_status"
+                                    id="module_notificationTelegram_status"
+                                    class="form-control">
+                                {% if module_notificationTelegram_status %}
+                                    <option value="1" selected>{{ text_enabled }}</option>
+                                    <option value="0">{{ text_disabled }}</option>
+                                {% else %}
+                                    <option value="1">{{ text_enabled }}</option>
+                                    <option value="0" selected>{{ text_disabled }}</option>
+                                {% endif %}
+                            </select>
                         </div>
+                    </div>
 
-
-                        <hr>
-
-
-
-
-
-
-                        <div class="row">
-                            <label class="col-sm-2 control-label"
-                                   for="input-module_hello_world_status">{{ entry_status }}</label>
-                            <div class="col-sm-10">
-                                <select name="notificationTelegram_status" id="notificationTelegram_status"
-                                        class="form-control">
-                                    {% if notificationTelegram_status %}
-                                        <option value="1" selected>{{ text_enabled }}</option>
-                                        <option value="0">{{ text_disabled }}</option>
-                                    {% else %}
-                                        <option value="1">{{ text_enabled }}</option>
-                                        <option value="0" selected>{{ text_disabled }}</option>
-                                    {% endif %}
-                                </select>
-                            </div>
-                        </div>
+                </div>
+            </div>
+        </div>
 
 
     </form>
@@ -312,7 +254,8 @@
 
             $.each(obj, function (key, value) {
 
-                $("#buttonKey").append('<li aria-hidden="true" ><a href="javascript:appenTextarea(' + key + ')" keys="' + value + '" >' + value + '</a> </li>');
+               $("#buttonKey").append('<li class="button t-1" aria-hidden="true" ><a href="javascript:appenTextarea(' + key + ')" keys="' + value + '" >' + value + '</a> </li>');
+
 
             });
 
@@ -340,7 +283,7 @@
         function appenTextarea(key) {
 
 
-            var $txt = jQuery("#notificationTelegram_meassage");
+            var $txt = jQuery("#module_notificationTelegram_meassage");
             var caretPos = $txt[0].selectionStart;
             var textAreaTxt = $txt.val();
             var txtToAdd = "{" + obj[key] + "}";
@@ -353,7 +296,7 @@
         function appenTextareaNewAccount(key) {
 
 
-            var $txt = jQuery("#notificationTelegram_new_account_meassage");
+            var $txt = jQuery("#module_notificationTelegram_new_account_meassage");
             var caretPos = $txt[0].selectionStart;
             var textAreaTxt = $txt.val();
             var txtToAdd = "{" + objNewAccount[key] + "}";
@@ -363,7 +306,7 @@
         function appenTextareaProduct(key) {
 
 
-            var $txt = jQuery("#notificationTelegram_product_meassage");
+            var $txt = jQuery("#module_notificationTelegram_product_meassage");
             var caretPos = $txt[0].selectionStart;
             var textAreaTxt = $txt.val();
             var txtToAdd = "{" + objProduct[key] + "}";
@@ -374,9 +317,11 @@
         function appText() {
 
 
-            var html = '<div style=" padding-top: 3px;"  class="input-group col-lg-12 parent"><span class="input-group-addon" id="basic-addon1">{{ entry_return_chatID }}</span><input type="textarea" name="notificationTelegram_chat_ids[]" class="form-control"  value="{{ val }}"/><span class="input-group-btn"><button   class="btn btn-danger removed" type="button"><i class="fa fa-trash-o"></i></button></span> </div>';
+            var html = '<div style=" padding-top: 3px;"  class="input-group col-md-6 parent"><span class="input-group-addon" id="basic-addon1">{{ entry_return_chatID }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><input type="text" name="module_notificationTelegram_chat_ids[]" class="form-control"  value="{{ val }}"/><span class="input-group-btn"><button   class="btn btn-danger removed" type="button"><i class="fa fa-trash-o"></i></button></span> </div>';
 
-            $(html).appendTo('#groubChatID');
+
+            $('#groubChatID').append(html);
+
 
             removActive();
         }
@@ -398,16 +343,16 @@
 
                 $('.input-group-addon').button('loading');
 
-                $('input[name^="notificationTelegram_chat_ids"]').each(function () {
+                $('input[name^="module_notificationTelegram_chat_ids"]').each(function () {
 
                     var obj = $(this);
                     var val = obj.val();
 
 
-                    var testurl = '{{ testUrl }}&notificationTelegram_boot_token=' + $('#notificationTelegram_boot_token').val() + '&notificationTelegram_chat_ids=' + val;
+                    var testurl = '{{ testUrl }}&module_notificationTelegram_boot_token=' + $('#module_notificationTelegram_boot_token').val() + '&module_notificationTelegram_chat_ids=' + val;
 
                     $.get(testurl, function (e) {
-                        $(obj).prevAll('.input-group-addon').button('reset');
+                       $('.input-group-addon').button('reset');
 
                         if (e.ok == 1) {
                             obj.attr('style', "border-radius: 5px; border:#8fbb6c 1px solid;");
