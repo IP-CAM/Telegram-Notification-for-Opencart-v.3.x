@@ -64,7 +64,7 @@ class ControllerExtensionModuleNotificationTelegram extends Controller{
 
 
 
-	public function sendAccountAlert(&$route, &$data, &$output){
+	public function newCustemerAlert(&$route, &$data, &$output){
 
       $this->load->model('setting/setting');
       $setting = $this->model_setting_setting->getSetting('module_notificationTelegram');
@@ -79,7 +79,7 @@ class ControllerExtensionModuleNotificationTelegram extends Controller{
 
 
 
-      if (isset($setting['module_notificationTelegram_customer_alert'])) {
+      if (isset($setting['module_notificationTelegram_new_customer_alert'])) {
 
 			$message = $this->replaceMessage($setting['module_notificationTelegram_new_custemer_meassage'],$data[0]);
 			$this->sendMessagetoTelegam( $message);

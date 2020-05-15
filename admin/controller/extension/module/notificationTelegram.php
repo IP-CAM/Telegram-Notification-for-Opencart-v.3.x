@@ -248,7 +248,7 @@ class ControllerExtensionModuleNotificationTelegram extends Controller {
     public function install(){
         $this->load->model('setting/event');
         $this->model_setting_event->addEvent('notificationTelegramNewOrderAlert', 'catalog/model/checkout/order/addOrderHistory/after', 'extension/module/notificationTelegram/newOrderAlert');
-        $this->model_setting_event->addEvent('notificationTelegramsendAccountAlert', 'catalog/model/account/customer/addCustomer/after', 'extension/module/notificationTelegram/sendAccountAlert');
+        $this->model_setting_event->addEvent('notificationTelegramNewCustemerAlert', 'catalog/model/account/customer/addCustomer/after', 'extension/module/notificationTelegram/newCustemerAlert');
         $this->model_setting_event->addEvent('notificationTelegramsendReturnProductAlert', 'catalog/model/account/return/addReturn/after', 'extension/module/notificationTelegram/sendReturnProductAlert');
     }
 
@@ -261,7 +261,7 @@ class ControllerExtensionModuleNotificationTelegram extends Controller {
 
         $this->load->model( 'setting/event' );
         $this->model_setting_event->deleteEventByCode('notificationTelegramNewOrderAlert' );
-        $this->model_setting_event->deleteEventByCode('notificationTelegramsendAccountAlert' );
+        $this->model_setting_event->deleteEventByCode('notificationTelegramnewCustemerAlert' );
         $this->model_setting_event->deleteEventByCode('notificationTelegramsendReturnProductAlert' );
 
 
