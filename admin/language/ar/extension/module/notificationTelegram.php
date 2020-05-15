@@ -42,9 +42,9 @@ $_['entry_return_alert'] = 'تنبيه عند ارجاع طلب';
 $_['entry_return_message'] = 'نص التنبيه';
 $_['entry_return_chatID'] = 'Chat ID';
 $_['entry_return_BOTTOKEN'] = 'BOT_TOKEN';
-$_['entry_return_messag_text'] = 'لديك طلب جديد   orderID: {order_id} ';
-$_['entry_new_account_messag_text'] = 'عميل جديد   : {firstname}   ';
-$_['entry_product_messag_text'] = 'مادة :{name}  سعر:{price}  كمية :{qty}   ';
+$_['entry_return_messag_text'] = 'لديك طلب جديد   orderID: <i>{order_id}</i> ';
+$_['entry_new_account_messag_text'] = 'عميل جديد   : <b>{firstname}</b>   ';
+$_['entry_product_messag_text'] = 'مادة :{name}  سعر: <u>{pricce}</u>  كمية :{quantity}   {product_url} ';
 
 // Help
 
@@ -55,4 +55,7 @@ $_['error_sent_notfction'] = 'لايمكن ارسال اتنبيه - الرجا�
 $_['error_no_key'] = 'لم تقم بادخال - BOT_TOKEN';
 $_['error_no_chat_ids'] = 'لم تقم بادخال - ChatID';
 
+
+
+$_['text_help_telegram_html'] = 'Telegram support  HTML Format  تليجرام يدعم هذه ';
 

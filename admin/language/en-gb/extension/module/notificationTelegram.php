@@ -35,7 +35,7 @@ $_['text_extension'] = 'Extensions';
 $_['text_success'] = 'Success: You have modified Notification Telegram module!';
 $_['text_edit'] = 'Edit Notification Telegram Module';
 $_['text_sent_success'] = 'Alert sent successfully!';
-$_['text_edit'] = 'Notify Telegram notifications';
+$_['text_edit'] = 'Telegram notifications';
 $_['text_new_account_messag'] = 'Message Alert ';
 $_['text_product_messag'] = 'Alert Product';
 
@@ -52,9 +52,9 @@ $_['entry_return_alert'] = 'Return Product';
 $_['entry_return_message'] = 'Message';
 $_['entry_return_chatID'] = 'Chat ID';
 $_['entry_return_BOTTOKEN'] = 'BOT_TOKEN';
-$_['entry_return_messag_text'] = 'You Have New Order  orderID: {order_id} ';
-$_['entry_new_account_messag_text'] = 'You Have New Account  Firstname: {firstname}   ';
-$_['entry_product_messag_text'] = "Name:{name}  Price:{price}  Quantity:{qty} \n ";
+$_['entry_return_messag_text'] = 'You Have New Order  orderID: <i>{order_id}</i> ';
+$_['entry_new_account_messag_text'] = 'You Have New Account  Firstname: <b>{firstname}</b>   ';
+$_['entry_product_messag_text'] = "Name:{name}  Price:<u>{price}</u>  Quantity:<strong>{quantity}</strong> \n  {product_url} ";
 
 
 // Error
@@ -62,3 +62,12 @@ $_['error_permission'] = 'Warning: You do not have permission to modify Notifica
 $_['error_sent_notfction'] = 'Can not send an alert - please check the settings';
 $_['error_no_key'] = 'You did not enter - BOT_TOKEN';
 $_['error_no_chat_ids'] = 'You did not enter - ChatID';
+
+
+
+
+$_['text_help_telegram_html'] = 'Telegram support  HTML Format';
+
+
+
+
