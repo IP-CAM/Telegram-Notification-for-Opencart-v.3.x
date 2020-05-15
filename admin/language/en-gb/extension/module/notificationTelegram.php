@@ -13,69 +13,48 @@ $_['text_version'] = '1.5.0 ';
 
 
 // Heading
-$_['heading_title']    		= 'Notification Telegram';
-$_['header_customer_message'] = 'Setting User';
-
-
-
-
-// Error
-$_['error_permission'] 		= 'Warning: You do not have permission to modify Notification Telegram module!';
-$_['error_sent_notfction'] = 'Can not send alert - please check the settings';
-$_['error_no_key'] = 'You did not enter - BOT_TOKEN';
-
-
 $_['heading_title'] = 'Notification Telegram';
-$_['header_customer_message'] = 'User Settings';
-
+$_['header_customer_message'] = ' اعدادات المستخدم';
 
 
 // Text
-$_['text_extension'] = 'Extensions';
-$_['text_success'] = 'Success: You have modified Notification Telegram module!';
-$_['text_edit'] = 'Edit Notification Telegram Module';
-$_['text_sent_success'] = 'Alert sent successfully!';
-$_['text_edit'] = 'Telegram notifications';
-$_['text_new_account_messag'] = 'Message Alert ';
-$_['text_product_messag'] = 'Alert Product';
+$_['text_extension'] = 'Extensions - الاضافة';
+$_['text_success'] = 'تم تعديل الاضافة بنجاح / Notification Telegram!';
+$_['text_edit'] = 'تعديل اعدادات Telegram Module';
+$_['text_sent_success'] = 'تم ارساله التنبيه بنجاح';
+$_['text_edit'] = 'تعديل تنبيهات / Notification Telegram';
+
 
 // Entry
-$_['entry_status'] = 'Status';
-$_['entry_description'] = 'Settings to send alerts';
-$_['entry_app_key'] = 'Application BOT_TOKEN';
-$_['entry_user_key'] = 'Notification Telegram Chat ID';
-$_['entry_send_order_alert'] = 'Send alert when new request';
-$_['entry_send_product_alert'] = 'Send alert product';
-$_['entry_send_new_customer_alert'] = 'Alert when registering new user';
-$_['entry_add_customer_name'] = 'Add user name to alert';
-$_['entry_return_alert'] = 'Return Product';
-$_['entry_return_message'] = 'Message';
-$_['entry_return_chatID'] = 'Chat ID';
-$_['entry_return_BOTTOKEN'] = 'BOT_TOKEN';
-$_['entry_return_messag_text'] = 'You Have New Order  orderID: <i>{order_id}</i> ';
-$_['entry_new_account_messag_text'] = 'You Have New Account  Firstname: <b>{firstname}</b>   ';
-$_['entry_product_messag_text'] = "Name:{name}  Price:<u>{price}</u>  Quantity:<strong>{quantity}</strong> \n  {product_url} ";
+
+$_['entry_chatID'] = 'Chat ID';
+$_['entry_BOTTOKEN'] = 'BOT_TOKEN';
+$_['entry_return_order'] = 'Return Order ';
+$_['entry_new_order'] = 'New Order orderID: <i>{order_id}</i> ';
+$_['entry_new_customer'] = 'New Custemer: <b>{firstname}</b>   ';
+$_['entry_products']  = 'Item :{name}  Price: <u>{price}</u>  Qty :{quantity}   {product_url} ';
+$_['entry_return_order'] = 'Return Order';
+
+// Help
+$_['text_help_status'] = 'Status';
+$_['text_help_new_order'] = 'Send alert when new order';
+$_['text_help_new_customer'] = 'Send alert when new Custemer';
+$_['text_help_return_order'] = 'Send alert when new order';
+$_['text_help_products'] = 'Send alert products';
 
 
 // Error
-$_['error_permission'] = 'Warning: You do not have permission to modify Notification Telegram module!';
-$_['error_sent_notfction'] = 'Can not send an alert - please check the settings';
+$_['error_permission']
+  = 'You do not have permission to edit the extension Notification Telegram module!';
+$_['error_sent_notification'] = 'Cannot send an alert - please check the settings';
 $_['error_no_key'] = 'You did not enter - BOT_TOKEN';
 $_['error_no_chat_ids'] = 'You did not enter - ChatID';
 
 
-
-
-$_['text_help_telegram_html'] = 'Telegram support  HTML Format';
-
-
-
+$_['text_help_telegram_html']
+  = 'Telegram support  HTML Format ';
 
 
 $_['text_help_home_tabe'] = 'Home';
 $_['text_help_help_tabe'] = 'Help';
-
-
-
-
 

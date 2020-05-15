@@ -95,7 +95,7 @@
                                         <div class="panel-body">
                                             <div class="row " id="groubChatID">
                                                 <div class="input-group col-md-6 input-boot-token">
-                                                    <span class="input-group-addon">{{ entry_return_BOTTOKEN }}</span>
+                                                    <span class="input-group-addon">{{ entry_BOTTOKEN }}</span>
                                                     <input type="text" name="module_notificationTelegram_boot_token"
                                                            id="module_notificationTelegram_boot_token"
                                                            value="{{ module_notificationTelegram_boot_token }}"
@@ -111,7 +111,7 @@
                                                     <div class="input-group col-md-6 " style=" padding-top: 3px;"
                                                          aria-hidden="true">
                                             <span class="input-group-addon"
-                                                  id="basic-addon1">{{ entry_return_chatID }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                                  id="basic-addon1">{{ entry_chatID }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                                                         <input type="text" name="module_notificationTelegram_chat_ids[]"
                                                                class="form-control"
                                                                value="{{ val }}"/>
@@ -132,9 +132,9 @@
 
                                     <div class="panel panel-default">
                                         <div class="panel-heading"><label class="control-label"
-                                                                          for="order_alert"> {{ entry_send_order_alert }}</label>
-                                            <input type="checkbox" name="module_notificationTelegram_order_alert"
-                                                   id="order_alert" {% if module_notificationTelegram_order_alert %} checked {% endif %}/>
+                                                                          for="order_alert"> {{ text_help_new_order }}</label>
+                                            <input type="checkbox" name="module_notificationTelegram_new_order_alert"
+                                                   id="order_alert" {% if module_notificationTelegram_new_order_alert %} checked {% endif %}/>
                                         </div>
                                         <div class="panel-body">
 
@@ -142,9 +142,9 @@
 
 
                                        <textarea rows="15" cols="50" class="form-control"
-                                                 id="module_notificationTelegram_meassage"
-                                                 name="module_notificationTelegram_meassage"
-                                                 rows="3">{% if module_notificationTelegram_meassage == "" %} {{ entry_return_messag_text }} {% endif %}{% if module_notificationTelegram_meassage %}{{ module_notificationTelegram_meassage }}{% endif %}</textarea>
+                                                 id="module_notificationTelegram_new_order_meassage"
+                                                 name="module_notificationTelegram_new_order_meassage"
+                                                 rows="3">{% if module_notificationTelegram_new_order_meassage is empty %} {{ entry_new_order }} {% endif %}{% if module_notificationTelegram_new_order_meassage %}{{ module_notificationTelegram_new_order_meassage }}{% endif %}</textarea>
 
                                             </div>
 
@@ -162,9 +162,9 @@
 
                                     <div class="panel panel-default">
                                         <div class="panel-heading"><label class=" control-label"
-                                                                          for="module_notificationTelegram_customer_alert">{{ entry_send_new_customer_alert }}
+                                                                          for="module_notificationTelegram_new_customer_alert">{{ text_help_new_customer }}
                                             </label>
-                                            <input type="checkbox" name="module_notificationTelegram_customer_alert"  id="module_notificationTelegram_customer_alert" {% if module_notificationTelegram_customer_alert %} checked {% endif %}/>
+                                            <input type="checkbox" name="module_notificationTelegram_new_customer_alert"  id="module_notificationTelegram_new_customer_alert" {% if module_notificationTelegram_new_customer_alert %} checked {% endif %}/>
 
 
                                         </div>
@@ -172,8 +172,8 @@
                                             <div class="col-md-5 B">
 
                                     <textarea rows="5" cols="50" class="form-control"
-                                              id="module_notificationTelegram_new_account_meassage"
-                                              name="module_notificationTelegram_new_account_meassage">{% if module_notificationTelegram_new_account_meassage == "" %} {{ entry_new_account_messag_text }} {% endif %}{% if module_notificationTelegram_new_account_meassage %}{{ module_notificationTelegram_new_account_meassage }}{% endif %}</textarea>
+                                              id="module_notificationTelegram_new_custemer_meassage"
+                                              name="module_notificationTelegram_new_custemer_meassage">{% if module_notificationTelegram_new_custemer_meassage is empty %} {{ entry_new_customer }} {% endif %}{% if module_notificationTelegram_new_custemer_meassage %}{{ module_notificationTelegram_new_custemer_meassage }}{% endif %}</textarea>
 
                                             </div>
 
@@ -191,7 +191,7 @@
 
                                     <div class="panel panel-default">
                                         <div class="panel-heading"><label class=" control-label"
-                                                                          for="customer_alert">{{ entry_send_product_alert }} </label>
+                                                                          for="customer_alert">{{ text_help_products }} </label>
                                             <input type="checkbox" name="module_notificationTelegram_product_alert"
                                                    id="module_notificationTelegram_product_alert" {% if
                                                 module_notificationTelegram_product_alert %} checked {% endif %}
@@ -202,7 +202,7 @@
                                             <div class="col-md-5 B">
                                      <textarea rows="5" cols="50" class="form-control"
                                                id="module_notificationTelegram_product_meassage"
-                                               name="module_notificationTelegram_product_meassage">{% if module_notificationTelegram_product_meassage == "" %} {{ entry_product_messag_text }} {% endif %}{% if module_notificationTelegram_product_meassage %}{{ module_notificationTelegram_product_meassage }}{% endif %}</textarea>
+                                               name="module_notificationTelegram_product_meassage">{% if module_notificationTelegram_product_meassage is empty %} {{ entry_products }} {% endif %}{% if module_notificationTelegram_product_meassage %}{{ module_notificationTelegram_product_meassage }}{% endif %}</textarea>
 
                                             </div>
 
@@ -220,11 +220,18 @@
 
                                     <div class="panel panel-default">
                                         <div class="panel-heading"><label class=" control-label"
-                                                                          for="return"> {{ entry_return_alert }}</label>
-                                            <input type="checkbox" name="module_notificationTelegram_return_alert"
-                                                   id="return" {% if module_notificationTelegram_return_alert %} checked {% endif %}
+                                                                          for="return"> {{ text_help_return_order }}</label>
+                                            <input type="checkbox" name="module_notificationTelegram_return_order_alert"
+                                                   id="return" {% if module_notificationTelegram_return_order_alert %} checked {% endif %}
                                             /></div>
                                         <div class="panel-body">
+
+                                              <textarea rows="5" cols="50" class="form-control"
+                                                        id="module_notificationTelegram_return_order_message"
+                                                        name="module_notificationTelegram_return_order_message">{% if module_notificationTelegram_return_order_message is empty %} {{ entry_return_order }} {% endif %} {% if module_notificationTelegram_return_order_message %}{{ module_notificationTelegram_return_order_message }}{% endif %}</textarea>
+
+
+
 
                                         </div>
                                     </div>
@@ -400,7 +407,7 @@
         function appText() {
 
 
-            var html = '<div style=" padding-top: 3px;"  class="input-group col-md-6 parent"><span class="input-group-addon" id="basic-addon1">{{ entry_return_chatID }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><input type="text" name="module_notificationTelegram_chat_ids[]" class="form-control"  value="{{ val }}"/><span class="input-group-btn"><button   class="btn btn-danger removed" type="button"><i class="fa fa-trash-o"></i></button></span> </div>';
+            var html = '<div style=" padding-top: 3px;"  class="input-group col-md-6 parent"><span class="input-group-addon" id="basic-addon1">{{ entry_chatID }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><input type="text" name="module_notificationTelegram_chat_ids[]" class="form-control"  value="{{ val }}"/><span class="input-group-btn"><button   class="btn btn-danger removed" type="button"><i class="fa fa-trash-o"></i></button></span> </div>';
 
 
             $('#groubChatID').append(html);

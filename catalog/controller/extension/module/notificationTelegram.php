@@ -12,7 +12,7 @@ class ControllerExtensionModuleNotificationTelegram extends Controller{
 
 
 
-	public function sendOrderAlert(&$route, &$data, &$output){
+	public function newOrderAlert(&$route, &$data, &$output){
 
 
       $this->load->model('setting/setting');
@@ -33,14 +33,13 @@ class ControllerExtensionModuleNotificationTelegram extends Controller{
 		$this->load->model('checkout/order');
 		$order_info = $this->model_checkout_order->getOrder($order_id);
 
-    $setting = $this->model_setting_setting->getSetting('module_notificationTelegram');
 
 
-		if (isset($setting['module_notificationTelegram_order_alert'])) {
+		if (isset($setting['module_notificationTelegram_new_order_alert'])) {
 
 			$this->load->model('account/order');
 			if (count($this->model_account_order->getOrderHistories($order_id)) <= 1) {
-				$message = $this->replaceMessage($setting['module_notificationTelegram_meassage'],$order_info);
+				$message = $this->replaceMessage($setting['module_notificationTelegram_new_order_meassage'],$order_info);
 				//                    $message .= $this->buldArray($order_info);
 
 				$this->sendMessagetoTelegam($message);
@@ -82,7 +81,7 @@ class ControllerExtensionModuleNotificationTelegram extends Controller{
 
       if (isset($setting['module_notificationTelegram_customer_alert'])) {
 
-			$message = $this->replaceMessage($setting['module_notificationTelegram_new_account_meassage'],$data[0]);
+			$message = $this->replaceMessage($setting['module_notificationTelegram_new_custemer_meassage'],$data[0]);
 			$this->sendMessagetoTelegam( $message);
 
 		}
@@ -92,6 +91,11 @@ class ControllerExtensionModuleNotificationTelegram extends Controller{
 
 
 	public function sendReturnProductAlert(&$data,&$output){
+
+
+
+
+
 
 
       $this->load->model('setting/setting');
@@ -106,9 +110,9 @@ class ControllerExtensionModuleNotificationTelegram extends Controller{
 
 
 
-      if (isset($setting['module_notificationTelegram_return_alert'])) {
-
-			$message = "ارجاع طلب \n ";
+      if (isset($setting['module_notificationTelegram_return_order_alert'])) {
+      $order_id = $data[0];
+			$message = $setting['module_notificationTelegram_return_order_message']."#";
 			$this->sendMessagetoTelegam( $message);
 
 
