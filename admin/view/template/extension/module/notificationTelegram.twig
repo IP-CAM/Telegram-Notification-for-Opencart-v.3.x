@@ -26,7 +26,14 @@
         <div class="container-fluid">
 
 
+
+
             <div class="panel panel-default">
+
+
+
+
+
                 <div class="panel-heading">
                     <h3 class="panel-title"><i class="fa fa-pencil"></i> {{ text_edit }} </h3>
                 </div>
@@ -43,9 +50,202 @@
                         <div class="alert alert-danger" role="alert">{{ error_no_chat_ids }}</div>
                     {% endif %}
 
-                    <div class="alert" role="alert"><a href="https://core.telegram.org/bots/api#formatting-options" target="_blank">{{ text_help_telegram_html }}</a>
 
-                        <pre><code>&lt;b&gt;bold&lt;/b&gt;, &lt;strong&gt;bold&lt;/strong&gt;
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#homeTable">{{ text_help_home_tabe }}</a></li>
+                        <li><a data-toggle="tab" href="#helpTabe">{{ text_help_help_tabe }}</a></li>
+
+                    </ul>
+
+
+                    <div class="tab-content">
+                        <div id="homeTable" class="tab-pane fade in active">
+
+                            <div class="container col-12">
+
+
+
+
+                                <div class="row">
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                    <button type="button" form="form-push" onclick="appText();"
+                                                            data-toggle="tooltip" title="" class="btn btn-primary"
+                                                            data-original-title="Add Chat IDs"><i class="fa fa-plus"></i>
+                                                    </button>
+
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <button type="button" id="test" data-toggle="tooltip" title=""
+                                                            class="btn btn-primary"
+                                                            data-original-title="Test Push Notification"><i
+                                                                class="fa fa-comments-o "></i></button>
+
+                                                </div>
+
+
+
+
+                                            </div>
+
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="row " id="groubChatID">
+                                                <div class="input-group col-md-6 input-boot-token">
+                                                    <span class="input-group-addon">{{ entry_return_BOTTOKEN }}</span>
+                                                    <input type="text" name="module_notificationTelegram_boot_token"
+                                                           id="module_notificationTelegram_boot_token"
+                                                           value="{{ module_notificationTelegram_boot_token }}"
+                                                           placeholder="BOT_TOKEN"
+                                                           class="form-control"/>
+                                                    <span class="input-group-btn"><button class="btn btn-info " type="button"><i
+                                                                    class="fa fa-bookmark"></i></button> </span>
+                                                </div>
+
+
+                                                {% for key,val in module_notificationTelegram_chat_ids %}
+
+                                                    <div class="input-group col-md-6 " style=" padding-top: 3px;"
+                                                         aria-hidden="true">
+                                            <span class="input-group-addon"
+                                                  id="basic-addon1">{{ entry_return_chatID }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                                        <input type="text" name="module_notificationTelegram_chat_ids[]"
+                                                               class="form-control"
+                                                               value="{{ val }}"/>
+                                                        <span class="input-group-btn"><button class="btn btn-danger removed"
+                                                                                              type="button"><i
+                                                                        class="fa fa-trash-o"></i></button></span>
+                                                    </div>
+
+                                                {% endfor %}
+
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    {#   Panel Alert#}
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading"><label class="control-label"
+                                                                          for="order_alert"> {{ entry_send_order_alert }}</label>
+                                            <input type="checkbox" name="module_notificationTelegram_order_alert"
+                                                   id="order_alert" {% if module_notificationTelegram_order_alert %} checked {% endif %}/>
+                                        </div>
+                                        <div class="panel-body">
+
+                                            <div class="col-md-5 ">
+
+
+                                       <textarea rows="15" cols="50" class="form-control"
+                                                 id="module_notificationTelegram_meassage"
+                                                 name="module_notificationTelegram_meassage"
+                                                 rows="3">{% if module_notificationTelegram_meassage == "" %} {{ entry_return_messag_text }} {% endif %}{% if module_notificationTelegram_meassage %}{{ module_notificationTelegram_meassage }}{% endif %}</textarea>
+
+                                            </div>
+
+                                            {#C#}
+                                            <div class="col-md-6 ">
+
+                                                <nav aria-label="...">
+                                                    <ul class="pager" id="buttonKey">
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading"><label class=" control-label"
+                                                                          for="module_notificationTelegram_customer_alert">{{ entry_send_new_customer_alert }}
+                                            </label>
+                                            <input type="checkbox" name="module_notificationTelegram_customer_alert"  id="module_notificationTelegram_customer_alert" {% if module_notificationTelegram_customer_alert %} checked {% endif %}/>
+
+
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="col-md-5 B">
+
+                                    <textarea rows="5" cols="50" class="form-control"
+                                              id="module_notificationTelegram_new_account_meassage"
+                                              name="module_notificationTelegram_new_account_meassage">{% if module_notificationTelegram_new_account_meassage == "" %} {{ entry_new_account_messag_text }} {% endif %}{% if module_notificationTelegram_new_account_meassage %}{{ module_notificationTelegram_new_account_meassage }}{% endif %}</textarea>
+
+                                            </div>
+
+                                            {#C#}
+                                            <div class="col-md-6 C">
+
+                                                <nav aria-label="...">
+                                                    <ul class="pager" id="buttonKeyNewAccount">
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading"><label class=" control-label"
+                                                                          for="customer_alert">{{ entry_send_product_alert }} </label>
+                                            <input type="checkbox" name="module_notificationTelegram_product_alert"
+                                                   id="module_notificationTelegram_product_alert" {% if
+                                                module_notificationTelegram_product_alert %} checked {% endif %}
+                                            />
+                                        </div>
+
+                                        <div class="panel-body">
+                                            <div class="col-md-5 B">
+                                     <textarea rows="5" cols="50" class="form-control"
+                                               id="module_notificationTelegram_product_meassage"
+                                               name="module_notificationTelegram_product_meassage">{% if module_notificationTelegram_product_meassage == "" %} {{ entry_product_messag_text }} {% endif %}{% if module_notificationTelegram_product_meassage %}{{ module_notificationTelegram_product_meassage }}{% endif %}</textarea>
+
+                                            </div>
+
+                                            {#C#}
+                                            <div class="col-md-6 C">
+
+                                                <div class="pager" id="buttonKeyProduct">
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading"><label class=" control-label"
+                                                                          for="return"> {{ entry_return_alert }}</label>
+                                            <input type="checkbox" name="module_notificationTelegram_return_alert"
+                                                   id="return" {% if module_notificationTelegram_return_alert %} checked {% endif %}
+                                            /></div>
+                                        <div class="panel-body">
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <div id="helpTabe" class="tab-pane fade">
+
+
+                            <div class="row">
+                                <div class="col-md-8">
+
+
+                                    <div class="alert" role="alert"><a href="https://core.telegram.org/bots/api#formatting-options" target="_blank">{{ text_help_telegram_html }}</a>
+
+                                        <pre><code>&lt;b&gt;bold&lt;/b&gt;, &lt;strong&gt;bold&lt;/strong&gt;
                         &lt;i&gt;italic&lt;/i&gt;, &lt;em&gt;italic&lt;/em&gt;
                         &lt;u&gt;underline&lt;/u&gt;, &lt;ins&gt;underline&lt;/ins&gt;
                         &lt;s&gt;strikethrough&lt;/s&gt;, &lt;strike&gt;strikethrough&lt;/strike&gt;, &lt;del&gt;strikethrough&lt;/del&gt;
@@ -56,183 +256,44 @@
                         &lt;pre&gt;pre-formatted fixed-width code block&lt;/pre&gt;
                         &lt;pre&gt;&lt;code class="language-python"&gt;pre-formatted fixed-width code block written in the Python programming language&lt;/code&gt;&lt;/pre&gt;</code></pre>
 
-                    </div>
-
-
-
-
-
-                    <div class="container col-12">
-
-
-
-
-                        <div class="row">
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <div class="row">
-                                        <div class="col-md-1">
-                                            <button type="button" form="form-push" onclick="appText();"
-                                                    data-toggle="tooltip" title="" class="btn btn-primary"
-                                                    data-original-title="Add Chat IDs"><i class="fa fa-plus"></i>
-                                            </button>
-
-                                        </div>
-                                        <div class="col-md-1">
-                                            <button type="button" id="test" data-toggle="tooltip" title=""
-                                                    class="btn btn-primary"
-                                                    data-original-title="Test Push Notification"><i
-                                                        class="fa fa-comments-o "></i></button>
-
-                                        </div>
-
-
-
-
                                     </div>
+
 
                                 </div>
-                                <div class="panel-body">
-                                    <div class="row " id="groubChatID">
-                                        <div class="input-group col-md-6 input-boot-token">
-                                            <span class="input-group-addon">{{ entry_return_BOTTOKEN }}</span>
-                                            <input type="text" name="module_notificationTelegram_boot_token"
-                                                   id="module_notificationTelegram_boot_token"
-                                                   value="{{ module_notificationTelegram_boot_token }}"
-                                                   placeholder="BOT_TOKEN"
-                                                   class="form-control"/>
-                                            <span class="input-group-btn"><button class="btn btn-info " type="button"><i
-                                                            class="fa fa-bookmark"></i></button> </span>
-                                        </div>
+                                <div class="col-md-4">
+                                    <ul class="list-group">
+                                        <li class="list-group-item list-group-item-success">اللهم لا علم لنا إلا ما علمتنا ، إنك أنت العليم الحكيم، اللهم علمنا ما ينفعنا ، وانفعنا بما علمتنا ، وزدنا علما</li>
+                                        <li class="list-group-item text-right">
+                                            <span class="text-right">BasheirHassan</span>
+                                            <a href="https://twitter.com/basheirhassan?lang=en" target="_blank" class="twitter"><i class="fa fa-twitter fa-3x"></i></a>
+
+                                        </li>
+                                        <li class="list-group-item text-right">
+                                            <span class="text-right">BasheirHassan</span>
+                                            <a href="https://www.youtube.com/watch?v=-imlCMmdO-k&feature=emb_title" target="_blank" class="youtube"><i class="fa fa-youtube fa-3x"></i></a>
+                                        </li>
+
+                                        <li class="list-group-item text-right">
+                                            <span class="text-right">BasheirHassan</span>
+                                            <a href="https://github.com/BasheirHassan?tab=repositories" target="_blank" class="youtube"><i class="fa fa-github fa-3x"></i></a>
+                                        </li>
+                                    </ul>
 
 
-                                        {% for key,val in module_notificationTelegram_chat_ids %}
+                                </div>
+                                <div class="col-md-12">
 
-                                            <div class="input-group col-md-6 " style=" padding-top: 3px;"
-                                                 aria-hidden="true">
-                                            <span class="input-group-addon"
-                                                  id="basic-addon1">{{ entry_return_chatID }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                                <input type="text" name="module_notificationTelegram_chat_ids[]"
-                                                       class="form-control"
-                                                       value="{{ val }}"/>
-                                                <span class="input-group-btn"><button class="btn btn-danger removed"
-                                                                                      type="button"><i
-                                                                class="fa fa-trash-o"></i></button></span>
-                                            </div>
-
-                                        {% endfor %}
-
-
-                                    </div>
+                                    <iframe width="600" height="400" src="https://www.youtube.com/embed/SCpZUmIJ0Dw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
                                 </div>
                             </div>
-
-                            {#   Panel Alert#}
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading"><label class="control-label"
-                                                                  for="order_alert"> {{ entry_send_order_alert }}</label>
-                                    <input type="checkbox" name="module_notificationTelegram_order_alert"
-                                           id="order_alert" {% if module_notificationTelegram_order_alert %} checked {% endif %}/>
-                                </div>
-                                <div class="panel-body">
-
-                                    <div class="col-md-5 ">
-
-
-                                       <textarea rows="15" cols="50" class="form-control"
-                                                 id="module_notificationTelegram_meassage"
-                                                 name="module_notificationTelegram_meassage"
-                                                 rows="3">{% if module_notificationTelegram_meassage == "" %} {{ entry_return_messag_text }} {% endif %}{% if module_notificationTelegram_meassage %}{{ module_notificationTelegram_meassage }}{% endif %}</textarea>
-
-                                    </div>
-
-                                    {#C#}
-                                    <div class="col-md-6 ">
-
-                                        <nav aria-label="...">
-                                            <ul class="pager" id="buttonKey">
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading"><label class=" control-label"
-                                                                  for="module_notificationTelegram_customer_alert">{{ entry_send_new_customer_alert }}
-                                      </label>
-                                    <input type="checkbox" name="module_notificationTelegram_customer_alert"  id="module_notificationTelegram_customer_alert" {% if module_notificationTelegram_customer_alert %} checked {% endif %}/>
-
-
-                                </div>
-                                <div class="panel-body">
-                                    <div class="col-md-5 B">
-
-                                    <textarea rows="5" cols="50" class="form-control"
-                                              id="module_notificationTelegram_new_account_meassage"
-                                              name="module_notificationTelegram_new_account_meassage">{% if module_notificationTelegram_new_account_meassage == "" %} {{ entry_new_account_messag_text }} {% endif %}{% if module_notificationTelegram_new_account_meassage %}{{ module_notificationTelegram_new_account_meassage }}{% endif %}</textarea>
-
-                                    </div>
-
-                                    {#C#}
-                                    <div class="col-md-6 C">
-
-                                        <nav aria-label="...">
-                                            <ul class="pager" id="buttonKeyNewAccount">
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading"><label class=" control-label"
-                                                                  for="customer_alert">{{ entry_send_product_alert }} </label>
-                                    <input type="checkbox" name="module_notificationTelegram_product_alert"
-                                           id="module_notificationTelegram_product_alert" {% if
-                                        module_notificationTelegram_product_alert %} checked {% endif %}
-                                          />
-                                </div>
-
-                                <div class="panel-body">
-                                    <div class="col-md-5 B">
-                                     <textarea rows="5" cols="50" class="form-control"
-                                               id="module_notificationTelegram_product_meassage"
-                                               name="module_notificationTelegram_product_meassage">{% if module_notificationTelegram_product_meassage == "" %} {{ entry_product_messag_text }} {% endif %}{% if module_notificationTelegram_product_meassage %}{{ module_notificationTelegram_product_meassage }}{% endif %}</textarea>
-
-                                    </div>
-
-                                    {#C#}
-                                    <div class="col-md-6 C">
-
-                                            <div class="pager" id="buttonKeyProduct">
-                                            </div>
-
-
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading"><label class=" control-label"
-                                                                  for="return"> {{ entry_return_alert }}</label>
-                                    <input type="checkbox" name="module_notificationTelegram_return_alert"
-                                           id="return" {% if module_notificationTelegram_return_alert %} checked {% endif %}
-                                          /></div>
-                                <div class="panel-body">
-
-                                </div>
-                            </div>
-
 
                         </div>
+
                     </div>
+
+
+
 
 
                     <div class="row">

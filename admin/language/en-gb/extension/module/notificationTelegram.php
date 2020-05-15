@@ -9,7 +9,7 @@
  */
 
 
-$_['text_version'] = '1.3.0 ';
+$_['text_version'] = '1.4.0 ';
 
 
 // Heading
@@ -67,6 +67,14 @@ $_['error_no_chat_ids'] = 'You did not enter - ChatID';
 
 
 $_['text_help_telegram_html'] = 'Telegram support  HTML Format';
+
+
+
+
+
+$_['text_help_home_tabe'] = 'Home';
+$_['text_help_help_tabe'] = 'Help';
+
 
 
 
