@@ -9,7 +9,7 @@
  */
 
 
-$_['text_version'] = '1.2.5 ';
+$_['text_version'] = '1.3.0 ';
 
 
 // Heading
