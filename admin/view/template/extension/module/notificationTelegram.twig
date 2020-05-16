@@ -151,10 +151,10 @@
                                             {#C#}
                                             <div class="col-md-6 ">
 
-                                                <nav aria-label="...">
-                                                    <ul class="pager" id="buttonKey">
-                                                    </ul>
-                                                </nav>
+                                                <div class="btn-group btn-group-sm" data-toggle="buttons" id="newOrderList">
+
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -181,7 +181,7 @@
                                             <div class="col-md-6 C">
 
                                                 <nav aria-label="...">
-                                                    <ul class="pager" id="buttonKeyNewAccount">
+                                                    <ul class="pager" id="buttonKeyNewCustemer">
                                                     </ul>
                                                 </nav>
                                             </div>
@@ -333,88 +333,68 @@
     <script type="text/javascript">
 
 
-        var obj = ["order_id", "store_name", "customer_id", "firstname", "lastname", "email", "telephone", "payment_firstname", "payment_lastname", "payment_address_1", "payment_address_2", "payment_city", "payment_zone", "payment_country", "payment_address_format", "payment_method", "shipping_firstname", "shipping_lastname", "shipping_company", "shipping_address_1", "shipping_address_2", "shipping_postcode", "shipping_city", "shipping_zone", "shipping_country", "shipping_address_format", "shipping_method", "comment", "total", "order_status_id", "order_status", "currency_value", "date_added", "date_modified"];
-        var objNewAccount = ["firstname", "lastname", "email", "telephone"];
+        var newOrderObj = ["order_id", "store_name", "customer_id", "firstname", "lastname", "email", "telephone", "payment_firstname", "payment_lastname", "payment_address_1", "payment_address_2", "payment_city", "payment_zone", "payment_country", "payment_address_format", "payment_method", "shipping_firstname", "shipping_lastname", "shipping_company", "shipping_address_1", "shipping_address_2", "shipping_postcode", "shipping_city", "shipping_zone", "shipping_country", "shipping_address_format", "shipping_method", "comment", "total", "order_status_id", "order_status", "currency_value", "date_added", "date_modified"];
+        var objNewCustemer = ["firstname", "lastname", "email", "telephone"];
         var objProduct = ["order_product_id", "order_id", "product_id", "name", "model", "quantity", "price", "total", "tax", "reward", "product_url"];
 
 
         $(document).ready(function () {
 
-            var i = 0;
-
-            $.each(obj, function (key, value) {
-
-               $("#buttonKey").append('<li class="button t-1" aria-hidden="true" ><a href="javascript:appenTextarea(' + key + ')" keys="' + value + '" >' + value + '</a> </li>');
 
 
+            $.each(newOrderObj, function (key, value) {
+
+               $("#newOrderList").append('<label class="btn btn-secondary"><button type="button" class="btn btn-default newOrderButton p-3 ">'+value+'</button></label>');
             });
 
 
-            $.each(objNewAccount, function (key, value) {
+            $.each(objNewCustemer, function (key, value) {
 
-                $("#buttonKeyNewAccount").append('<li aria-hidden="true" ><a href="javascript:appenTextareaNewAccount(' + key + ')" keys="' + value + '" >' + value + '</a> </li>');
+                $("#buttonKeyNewCustemer").append('<label class="btn btn-secondary"><button type="button" class="btn btn-default NewCustemerButton t-1">'+value+'</button></label>');
 
             });
-
 
             $.each(objProduct, function (key, value) {
 
-                $("#buttonKeyProduct").append('<li aria-hidden="true" ><a href="javascript:appenTextareaProduct(' + key + ')" keys="' + value + '" >' + value + '</a> </li>');
+                $("#buttonKeyProduct").append('<label class="btn btn-secondary"><button type="button" class="btn btn-default productButton t-1">'+value+'</button></label>');
 
             });
-
-
-            removActive();
-
 
         });
 
 
-        function appenTextarea(key) {
+
+        $(document).on('click','.newOrderButton',function () {
+            var that = $(this).text();
+            var newOrderTextArea = $("#module_notificationTelegram_new_order_meassage");
+            newOrderTextArea.val(newOrderTextArea.val() + formatVar(that));
+
+        });
 
 
-            var $txt = jQuery("#module_notificationTelegram_new_order_meassage");
-            var caretPos = $txt[0].selectionStart;
-            var textAreaTxt = $txt.val();
-            var txtToAdd = "{" + obj[key] + "}";
-            $txt.val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos));
+         $(document).on('click','.NewCustemerButton',function () {
+            var that = $(this).text();
+            var newCustemerTextArea = $("#module_notificationTelegram_new_custemer_meassage");
+            newCustemerTextArea.val(newCustemerTextArea.val() + formatVar(that))
+
+        });
 
 
-        }
+         $(document).on('click','.productButton',function () {
+            var that = $(this).text();
+            var productTextArea = $("#module_notificationTelegram_product_meassage");
+            productTextArea.val(productTextArea.val() + formatVar(that))
+
+        });
 
 
-        function appenTextareaNewAccount(key) {
+
+         function formatVar(t) {
+
+            return " {"+t+"} ";
+         }
 
 
-            var $txt = jQuery("#module_notificationTelegram_new_custemer_meassage");
-            var caretPos = $txt[0].selectionStart;
-            var textAreaTxt = $txt.val();
-            var txtToAdd = "{" + objNewAccount[key] + "}";
-            $txt.val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos));
-        }
-
-        function appenTextareaProduct(key) {
-
-
-            var $txt = jQuery("#module_notificationTelegram_product_meassage");
-            var caretPos = $txt[0].selectionStart;
-            var textAreaTxt = $txt.val();
-            var txtToAdd = "{" + objProduct[key] + "}";
-            $txt.val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos));
-        }
-
-
-        function appText() {
-
-
-            var html = '<div style=" padding-top: 3px;"  class="input-group col-md-6 parent"><span class="input-group-addon" id="basic-addon1">{{ entry_chatID }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><input type="text" name="module_notificationTelegram_chat_ids[]" class="form-control"  value="{{ val }}"/><span class="input-group-btn"><button   class="btn btn-danger removed" type="button"><i class="fa fa-trash-o"></i></button></span> </div>';
-
-
-            $('#groubChatID').append(html);
-
-
-            removActive();
-        }
 
 
         function removActive() {
