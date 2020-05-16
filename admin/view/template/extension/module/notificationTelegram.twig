@@ -72,7 +72,7 @@
                                         <div class="panel-heading">
                                             <div class="row">
                                                 <div class="col-md-1">
-                                                    <button type="button" form="form-push" onclick="appText();"
+                                                    <button type="button" form="form-push" onclick="appChatID();"
                                                             data-toggle="tooltip" title="" class="btn btn-primary"
                                                             data-original-title="Add Chat IDs"><i class="fa fa-plus"></i>
                                                     </button>
@@ -397,14 +397,24 @@
 
 
 
-        function removActive() {
-            $('.removed').on('click', function () {
-                $(this).parent().prevAll('input').remove();
-                $(this).parent().prevAll('div').remove();
-                $(this).parent().prevAll('span').remove();
-                $(this).remove();
-            });
+
+        function appChatID() {
+            var html = '<div style=" padding-top: 3px;"  class="input-group col-md-6 parent"><span class="input-group-addon" id="basic-addon1">{{ entry_chatID }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><input type="text" name="module_notificationTelegram_chat_ids[]" class="form-control"  value="{{ val }}"/><span class="input-group-btn"><button   class="btn btn-danger removed" type="button"><i class="fa fa-trash-o"></i></button></span> </div>';
+            $('#groubChatID').append(html);
         }
+
+
+
+
+
+        $(document).on('click','.removed',function () {
+            $(this).parent().prevAll('input').remove();
+            $(this).parent().prevAll('div').remove();
+            $(this).parent().prevAll('span').remove();
+            $(this).remove();
+        });
+
+
 
 
         $(document).ready(function () {
