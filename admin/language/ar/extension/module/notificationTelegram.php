@@ -5,12 +5,12 @@
  * User: basheir
  * Date: 6 يون، 2018 م
  * Time: 1:57 ص
- * Version 1.2.5
+ * Version 1.6.1
  */
 
 
 
-$_['text_version'] = '1.6.0 ';
+$_['text_version'] = '1.6.1 ';
 
 
 // Heading
